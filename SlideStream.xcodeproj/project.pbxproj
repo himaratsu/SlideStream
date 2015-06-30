@@ -13,6 +13,11 @@
 		D9B5043B1B42E0C4002927F3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9B5043A1B42E0C4002927F3 /* Images.xcassets */; };
 		D9B5043E1B42E0C4002927F3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9B5043C1B42E0C4002927F3 /* LaunchScreen.xib */; };
 		D9B5044A1B42E0C4002927F3 /* SlideStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B504491B42E0C4002927F3 /* SlideStreamTests.swift */; };
+		D9B504561B42E2F1002927F3 /* SlideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B504551B42E2F1002927F3 /* SlideCell.swift */; };
+		D9B504581B42E503002927F3 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B504571B42E503002927F3 /* Slide.swift */; };
+		D9B5045C1B42E62E002927F3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5045B1B42E62E002927F3 /* DetailViewController.swift */; };
+		D9B5045E1B42E6AA002927F3 /* SlideContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5045D1B42E6AA002927F3 /* SlideContentCell.swift */; };
+		D9B504611B42E937002927F3 /* DetailTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B504601B42E937002927F3 /* DetailTitleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,11 @@
 		D9B504431B42E0C4002927F3 /* SlideStreamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlideStreamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9B504481B42E0C4002927F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9B504491B42E0C4002927F3 /* SlideStreamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideStreamTests.swift; sourceTree = "<group>"; };
+		D9B504551B42E2F1002927F3 /* SlideCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideCell.swift; sourceTree = "<group>"; };
+		D9B504571B42E503002927F3 /* Slide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
+		D9B5045B1B42E62E002927F3 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		D9B5045D1B42E6AA002927F3 /* SlideContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideContentCell.swift; sourceTree = "<group>"; };
+		D9B504601B42E937002927F3 /* DetailTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTitleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +87,10 @@
 		D9B504301B42E0C4002927F3 /* SlideStream */ = {
 			isa = PBXGroup;
 			children = (
+				D9B504541B42E2E2002927F3 /* View */,
+				D9B504531B42E2DD002927F3 /* Model */,
 				D9B504331B42E0C4002927F3 /* AppDelegate.swift */,
-				D9B504351B42E0C4002927F3 /* ViewController.swift */,
+				D9B5045A1B42E61D002927F3 /* ViewController */,
 				D9B504371B42E0C4002927F3 /* Main.storyboard */,
 				D9B5043A1B42E0C4002927F3 /* Images.xcassets */,
 				D9B5043C1B42E0C4002927F3 /* LaunchScreen.xib */,
@@ -110,6 +122,41 @@
 				D9B504481B42E0C4002927F3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D9B504531B42E2DD002927F3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D9B504591B42E505002927F3 /* Entity */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D9B504541B42E2E2002927F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D9B504551B42E2F1002927F3 /* SlideCell.swift */,
+				D9B5045D1B42E6AA002927F3 /* SlideContentCell.swift */,
+				D9B504601B42E937002927F3 /* DetailTitleCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D9B504591B42E505002927F3 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				D9B504571B42E503002927F3 /* Slide.swift */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		D9B5045A1B42E61D002927F3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D9B504351B42E0C4002927F3 /* ViewController.swift */,
+				D9B5045B1B42E62E002927F3 /* DetailViewController.swift */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,8 +259,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9B504611B42E937002927F3 /* DetailTitleCell.swift in Sources */,
 				D9B504361B42E0C4002927F3 /* ViewController.swift in Sources */,
+				D9B504561B42E2F1002927F3 /* SlideCell.swift in Sources */,
+				D9B5045C1B42E62E002927F3 /* DetailViewController.swift in Sources */,
 				D9B504341B42E0C4002927F3 /* AppDelegate.swift in Sources */,
+				D9B504581B42E503002927F3 /* Slide.swift in Sources */,
+				D9B5045E1B42E6AA002927F3 /* SlideContentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +461,7 @@
 				D9B5044F1B42E0C4002927F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D9B504501B42E0C4002927F3 /* Build configuration list for PBXNativeTarget "SlideStreamTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +470,7 @@
 				D9B504521B42E0C4002927F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
