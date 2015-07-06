@@ -16,5 +16,9 @@ class DetailTitleCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func configure(title: String) {
+        titleLabel.text = title
+    }
 
 }

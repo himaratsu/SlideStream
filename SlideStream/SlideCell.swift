@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SlideCell: UITableViewCell {
 
@@ -21,6 +22,7 @@ class SlideCell: UITableViewCell {
     }
     
     func configureSlide(slide: Slide) {
+        thumbImageView.sd_setImageWithURL(NSURL(string: slide.imageUrl))
         titleLabel.text = slide.title
         sourceLabel.text = slide.source.rawValue
         hatebuLabel.text = "\(slide.hatebu) users"

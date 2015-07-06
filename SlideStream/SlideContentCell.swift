@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SlideContentCell: UITableViewCell {
 
@@ -15,6 +16,10 @@ class SlideContentCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func configure(slideUrl: String) {
+        slideImageView.sd_setImageWithURL(NSURL(string: slideUrl))
     }
     
 }

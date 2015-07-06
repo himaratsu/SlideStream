@@ -23,7 +23,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             case TableViewSectionType.Title.rawValue:
                 return 44
             case TableViewSectionType.SlideContent.rawValue:
-                return 224
+                return 270
             default:
                 return 0
             }
@@ -65,9 +65,13 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         switch indexPath.section {
         case TableViewSectionType.Title.rawValue:
             let cell = tableView.dequeueReusableCellWithIdentifier("DetailTitleCell") as! DetailTitleCell
+            cell.configure(slide!.title)
             return cell
         case TableViewSectionType.SlideContent.rawValue:
             let cell = tableView.dequeueReusableCellWithIdentifier("SlideContentCell") as! SlideContentCell
+            if let slideUrl = slide?.slideUrl(indexPath.row + 1) {
+                cell.configure(slideUrl)
+            }
             return cell
         default:
             fatalError("cell not initialized")
@@ -78,4 +82,14 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         return TableViewSectionType.heightForCell(indexPath)
     }
     
+    
+    // MARK: - Action
+    
+    @IBAction private func actionButtonTouched(sender: AnyObject) {
+        
+        if UIApplication.sharedApplication().canOpenURL(NSURL(string: slide!.link)!) {
+            UIApplication.sharedApplication().openURL(NSURL(string: slide!.link)!)
+        }
+        
+    }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3Pc-WV-pq0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3Pc-WV-pq0">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -27,7 +27,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XfI-5u-KDK" id="qeg-lz-Kwi">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oAT-WA-8I2">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oAT-WA-8I2">
                                                     <rect key="frame" x="8" y="8" width="111" height="97"/>
                                                     <color key="backgroundColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -109,7 +109,7 @@
             </objects>
             <point key="canvasLocation" x="681" y="650"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Title-->
         <scene sceneID="8UY-Io-Fhn">
             <objects>
                 <viewController id="fTk-Y8-c3p" customClass="DetailViewController" customModule="SlideStream" customModuleProvider="target" sceneMemberID="viewController">
@@ -125,17 +125,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SlideContentCell" rowHeight="224" id="DMi-PD-xJH" customClass="SlideContentCell" customModule="SlideStream" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SlideContentCell" rowHeight="263" id="DMi-PD-xJH" customClass="SlideContentCell" customModule="SlideStream" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DMi-PD-xJH" id="8VT-Qd-fbL">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4DV-V0-3Uj">
-                                                    <rect key="frame" x="8" y="8" width="304" height="207"/>
-                                                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4DV-V0-3Uj">
+                                                    <rect key="frame" x="8" y="8" width="304" height="246"/>
+                                                    <color key="backgroundColor" red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="4DV-V0-3Uj" firstAttribute="leading" secondItem="8VT-Qd-fbL" secondAttribute="leading" constant="8" id="M1A-mZ-Wbc"/>
                                                 <constraint firstAttribute="trailing" secondItem="4DV-V0-3Uj" secondAttribute="trailing" constant="8" id="OVZ-2t-zdS"/>
@@ -187,6 +188,13 @@
                             <constraint firstAttribute="trailing" secondItem="3Ly-JH-LQN" secondAttribute="trailing" id="yb7-dv-MD3"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="KEo-Gt-Fv6">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="o0z-U5-S0f">
+                            <connections>
+                                <action selector="actionButtonTouched:" destination="fTk-Y8-c3p" id="wMI-R5-kWJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="3Ly-JH-LQN" id="zHp-0b-bRT"/>
                     </connections>

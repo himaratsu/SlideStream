@@ -4,6 +4,7 @@ use_frameworks!
 
 target 'SlideStream' do
   pod 'Alamofire'
+  pod 'SDWebImage'
 end
 
 target 'SlideStreamTests' do

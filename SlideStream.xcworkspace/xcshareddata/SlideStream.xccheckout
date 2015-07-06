@@ -5,13 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>D5706BC9-ED17-4215-B7D9-A3147A8476AE</string>
+	<string>F87AE8E9-96AB-4AB3-8C36-7555F03CD1F8</string>
 	<key>IDESourceControlProjectName</key>
 	<string>SlideStream</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>B336E8A47743C84BD1E9667BA072F66C74709621</key>
-		<string>https://github.com/himaratsu/SlideStream.git</string>
+		<string>https://github.com/himaratsu/SlideStream</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>SlideStream.xcworkspace</string>
@@ -21,7 +21,7 @@
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/himaratsu/SlideStream.git</string>
+	<string>https://github.com/himaratsu/SlideStream</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

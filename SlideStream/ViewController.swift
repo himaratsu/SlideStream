@@ -32,8 +32,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 println("#################### error #####################")
             }
             else {
+                self.slides = slides!
                 self.tableView.reloadData()
-                println(slides)
             }
         }
         

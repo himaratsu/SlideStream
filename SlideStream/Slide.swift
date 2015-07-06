@@ -9,8 +9,8 @@
 import UIKit
 
 enum SourceType: String {
-    case SlideShare = "SlideShare"
-    case SpeakerDock = "SpeakerDock"
+    case SlideShare = "slideshare"
+    case SpeakerDeck = "speakerdeck"
     case NotFound = "not found"
 }
 
@@ -30,6 +30,14 @@ class Slide {
         self.imageUrl = imageUrl
         self.hatebu = hatebu
         self.totalCount = totalCount
+    }
+    
+    func slideUrl(index: Int) -> String? {
+        let replaceString = self.imageUrl.stringByReplacingOccurrencesOfString("-1-",
+            withString: "-\(index)-",
+            options: nil,
+            range: nil)
+        return replaceString
     }
     
 }
