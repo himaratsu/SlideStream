@@ -32,6 +32,8 @@ class SlideService {
                         let parser = SlideParser()
                         let slides = parser.parse(json)
                         
+                        completionHandler(slides, nil)
+                        
                     }
                 }
         }

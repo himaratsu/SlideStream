@@ -40,7 +40,6 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
 
         if let slide = slide {
             self.title = slide.title
-            slideContents = slide.contents
             tableView.reloadData()
         }
     }
@@ -56,7 +55,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         case TableViewSectionType.Title.rawValue:
             return 1
         case TableViewSectionType.SlideContent.rawValue:
-            return slideContents.count
+            return slide!.totalCount
         default:
             return 0
         }

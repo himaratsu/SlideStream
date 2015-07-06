@@ -27,22 +27,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
         let service = SlideService()
         service.requestSlides { (slides, error) -> Void in
-            println(slides)
+            
+            if let _ = error {
+                println("#################### error #####################")
+            }
+            else {
+                self.tableView.reloadData()
+                println(slides)
+            }
         }
         
-        // TODO: 通信処理
-        slides = [Slide]()
-        for i in 0...10 {
-            let slide = Slide(title: "あああああああああああああああああああああああああああああああああああああああああ",
-                url: "http://yahoo.co.jp",
-                source: SourceType.SlideShare,
-                imageUrl: "imageUrl",
-                hatebu: 33,
-                contents: ["slideUrl1", "slideUrl2", "slideUrl3", "slideUrl4", "slideUrl5", "slideUrl6"])
-            slides.append(slide)
-        }
-        
-        tableView.reloadData()
     }
 
 

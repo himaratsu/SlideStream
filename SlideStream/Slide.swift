@@ -11,24 +11,25 @@ import UIKit
 enum SourceType: String {
     case SlideShare = "SlideShare"
     case SpeakerDock = "SpeakerDock"
+    case NotFound = "not found"
 }
 
 class Slide {
    
     let title: String
-    let url: String
+    let link: String
     let source: SourceType
     let imageUrl: String
     let hatebu: Int
-    let contents: [String]
+    let totalCount: Int
     
-    init(title: String, url: String, source: SourceType, imageUrl: String, hatebu: Int, contents: [String]) {
+    init(title: String, link: String, source: SourceType, imageUrl: String, hatebu: Int, totalCount: Int) {
         self.title = title
-        self.url = url
+        self.link = link
         self.source = source
         self.imageUrl = imageUrl
         self.hatebu = hatebu
-        self.contents = contents
+        self.totalCount = totalCount
     }
     
 }
