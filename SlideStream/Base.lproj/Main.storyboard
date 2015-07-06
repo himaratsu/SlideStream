@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="114" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cW9-0T-wwr">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="532"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SlideCell" rowHeight="114" id="XfI-5u-KDK" customClass="SlideCell" customModule="SlideStream" customModuleProvider="target">
@@ -90,14 +90,35 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="bpg-cQ-ePb"/>
                                 </connections>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tfN-96-fWG">
+                                <rect key="frame" x="9" y="536" width="303" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="I8q-yn-Y1n"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="今日"/>
+                                    <segment title="今週"/>
+                                    <segment title="今月"/>
+                                    <segment title="殿堂入り"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cW9-0T-wwr" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="53q-iB-qGu"/>
                             <constraint firstItem="cW9-0T-wwr" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="7fj-BT-Qwt"/>
+                            <constraint firstItem="tfN-96-fWG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-7" id="FAc-y4-dbK"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="tfN-96-fWG" secondAttribute="bottom" constant="4" id="MhK-KM-Wy0"/>
                             <constraint firstAttribute="trailing" secondItem="cW9-0T-wwr" secondAttribute="trailing" id="aYj-QY-tD6"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="cW9-0T-wwr" secondAttribute="bottom" id="arZ-cE-SSQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tfN-96-fWG" secondAttribute="trailing" constant="-8" id="flf-ZR-9js"/>
+                            <constraint firstItem="tfN-96-fWG" firstAttribute="top" secondItem="cW9-0T-wwr" secondAttribute="bottom" constant="4" id="tn9-HH-vOP"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="arZ-cE-SSQ"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="人気" id="puE-H7-bc0"/>
                     <connections>
