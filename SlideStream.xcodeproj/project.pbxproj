@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7122F3FD11F404EA272353F /* Pods_SlideStream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76AE87B2349C255E8B8D86CB /* Pods_SlideStream.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		D916A3451B4A557500B96506 /* SlideService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D916A3441B4A557500B96506 /* SlideService.swift */; };
+		D916A3481B4A561C00B96506 /* SlideParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D916A3471B4A561C00B96506 /* SlideParser.swift */; };
 		D9B504341B42E0C4002927F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B504331B42E0C4002927F3 /* AppDelegate.swift */; };
 		D9B504361B42E0C4002927F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B504351B42E0C4002927F3 /* ViewController.swift */; };
 		D9B504391B42E0C4002927F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9B504371B42E0C4002927F3 /* Main.storyboard */; };
@@ -31,6 +34,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6F2F5FF82D334AAAF03693E4 /* Pods-SlideStream.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlideStream.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlideStream/Pods-SlideStream.release.xcconfig"; sourceTree = "<group>"; };
+		76AE87B2349C255E8B8D86CB /* Pods_SlideStream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlideStream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7745A0A553F98C90442FF573 /* Pods-SlideStream.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlideStream.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlideStream/Pods-SlideStream.debug.xcconfig"; sourceTree = "<group>"; };
+		D916A3441B4A557500B96506 /* SlideService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideService.swift; sourceTree = "<group>"; };
+		D916A3471B4A561C00B96506 /* SlideParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideParser.swift; sourceTree = "<group>"; };
 		D9B5042E1B42E0C4002927F3 /* SlideStream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlideStream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9B504321B42E0C4002927F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9B504331B42E0C4002927F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7122F3FD11F404EA272353F /* Pods_SlideStream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,12 +75,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4BB2ED221B11A96DA479CF36 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7745A0A553F98C90442FF573 /* Pods-SlideStream.debug.xcconfig */,
+				6F2F5FF82D334AAAF03693E4 /* Pods-SlideStream.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D916A3431B4A556500B96506 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D916A3441B4A557500B96506 /* SlideService.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		D916A3461B4A561200B96506 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				D916A3471B4A561C00B96506 /* SlideParser.swift */,
+			);
+			name = Parser;
+			sourceTree = "<group>";
+		};
 		D9B504251B42E0C4002927F3 = {
 			isa = PBXGroup;
 			children = (
 				D9B504301B42E0C4002927F3 /* SlideStream */,
 				D9B504461B42E0C4002927F3 /* SlideStreamTests */,
 				D9B5042F1B42E0C4002927F3 /* Products */,
+				4BB2ED221B11A96DA479CF36 /* Pods */,
+				F6ED164146736A9D6A25AF08 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +163,8 @@
 		D9B504531B42E2DD002927F3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D916A3461B4A561200B96506 /* Parser */,
+				D916A3431B4A556500B96506 /* Service */,
 				D9B504591B42E505002927F3 /* Entity */,
 			);
 			name = Model;
@@ -159,6 +197,14 @@
 			name = ViewController;
 			sourceTree = "<group>";
 		};
+		F6ED164146736A9D6A25AF08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				76AE87B2349C255E8B8D86CB /* Pods_SlideStream.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,9 +212,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D9B5044D1B42E0C4002927F3 /* Build configuration list for PBXNativeTarget "SlideStream" */;
 			buildPhases = (
+				1BBA31846B062C380F4EC466 /* Check Pods Manifest.lock */,
 				D9B5042A1B42E0C4002927F3 /* Sources */,
 				D9B5042B1B42E0C4002927F3 /* Frameworks */,
 				D9B5042C1B42E0C4002927F3 /* Resources */,
+				0B098F2CD35DFE62DCBB6897 /* Embed Pods Frameworks */,
+				1057019FE5B3372C4C7DEC3F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -254,6 +303,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0B098F2CD35DFE62DCBB6897 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlideStream/Pods-SlideStream-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1057019FE5B3372C4C7DEC3F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlideStream/Pods-SlideStream-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1BBA31846B062C380F4EC466 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D9B5042A1B42E0C4002927F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -263,9 +360,11 @@
 				D9B504361B42E0C4002927F3 /* ViewController.swift in Sources */,
 				D9B504561B42E2F1002927F3 /* SlideCell.swift in Sources */,
 				D9B5045C1B42E62E002927F3 /* DetailViewController.swift in Sources */,
+				D916A3481B4A561C00B96506 /* SlideParser.swift in Sources */,
 				D9B504341B42E0C4002927F3 /* AppDelegate.swift in Sources */,
 				D9B504581B42E503002927F3 /* Slide.swift in Sources */,
 				D9B5045E1B42E6AA002927F3 /* SlideContentCell.swift in Sources */,
+				D916A3451B4A557500B96506 /* SlideService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +489,7 @@
 		};
 		D9B5044E1B42E0C4002927F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7745A0A553F98C90442FF573 /* Pods-SlideStream.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SlideStream/Info.plist;
@@ -400,6 +500,7 @@
 		};
 		D9B5044F1B42E0C4002927F3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F2F5FF82D334AAAF03693E4 /* Pods-SlideStream.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SlideStream/Info.plist;

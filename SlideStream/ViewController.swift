@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Alamofire
+
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+
+    
     @IBOutlet weak private var tableView: UITableView!
     private var slides = [Slide]()
     
@@ -20,6 +24,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     private func reload() {
+    
+        let service = SlideService()
+        service.requestSlides { (slides, error) -> Void in
+            println(slides)
+        }
         
         // TODO: 通信処理
         slides = [Slide]()
