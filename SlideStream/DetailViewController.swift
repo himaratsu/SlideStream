@@ -69,7 +69,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             return cell
         case TableViewSectionType.SlideContent.rawValue:
             let cell = tableView.dequeueReusableCellWithIdentifier("SlideContentCell") as! SlideContentCell
-            if let slideUrl = slide?.slideUrl(indexPath.row + 1) {
+            if let slideUrl = slide?.slideUrl(indexPath.row) {
                 cell.configure(slideUrl)
             }
             return cell

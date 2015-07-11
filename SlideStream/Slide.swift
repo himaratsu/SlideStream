@@ -10,7 +10,7 @@ import UIKit
 
 enum SourceType: String {
     case SlideShare = "slideshare"
-    case SpeakerDeck = "speakerdeck"
+    case SpeakerDeck = "Speaker Deck"
     case NotFound = "not found"
 }
 
@@ -33,11 +33,22 @@ class Slide {
     }
     
     func slideUrl(index: Int) -> String? {
-        let replaceString = self.imageUrl.stringByReplacingOccurrencesOfString("-1-",
-            withString: "-\(index)-",
-            options: nil,
-            range: nil)
-        return replaceString
+        switch source {
+        case .SlideShare:
+            let replaceString = self.imageUrl.stringByReplacingOccurrencesOfString("#No",
+                withString: "\(index+1)",
+                options: nil,
+                range: nil)
+            return replaceString
+        case .SpeakerDeck:
+            let replaceString = self.imageUrl.stringByReplacingOccurrencesOfString("#No",
+                withString: "\(index)",
+                options: nil,
+                range: nil)
+            return replaceString
+        case .NotFound:
+            return nil
+        }
     }
     
 }
