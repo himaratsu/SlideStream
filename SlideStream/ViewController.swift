@@ -48,7 +48,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SlideCell") as! SlideCell
-        cell.configureSlide(slides[indexPath.row])
+        cell.configureSlide(slides[indexPath.row], index:indexPath.row)
         return cell
     }
     

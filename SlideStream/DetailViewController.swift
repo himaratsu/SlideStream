@@ -42,6 +42,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             self.title = slide.title
             tableView.reloadData()
         }
+        
     }
 
     // MARK: - UITableViewDataSource

@@ -19,7 +19,7 @@ class Slide {
     let title: String
     let link: String
     let source: SourceType
-    let imageUrl: String
+    let imageBaseUrl: String
     let hatebu: Int
     let totalCount: Int
     
@@ -27,21 +27,25 @@ class Slide {
         self.title = title
         self.link = link
         self.source = source
-        self.imageUrl = imageUrl
+        self.imageBaseUrl = imageUrl
         self.hatebu = hatebu
         self.totalCount = totalCount
+    }
+    
+    func slideThumbUrl() -> String {
+        return slideUrl(0) ?? ""
     }
     
     func slideUrl(index: Int) -> String? {
         switch source {
         case .SlideShare:
-            let replaceString = self.imageUrl.stringByReplacingOccurrencesOfString("#No",
+            let replaceString = self.imageBaseUrl.stringByReplacingOccurrencesOfString("#No",
                 withString: "\(index+1)",
                 options: nil,
                 range: nil)
             return replaceString
         case .SpeakerDeck:
-            let replaceString = self.imageUrl.stringByReplacingOccurrencesOfString("#No",
+            let replaceString = self.imageBaseUrl.stringByReplacingOccurrencesOfString("#No",
                 withString: "\(index)",
                 options: nil,
                 range: nil)

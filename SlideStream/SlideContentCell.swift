@@ -15,11 +15,29 @@ class SlideContentCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        slideImageView.layer.cornerRadius = 4.0
+        slideImageView.layer.masksToBounds = true
+        slideImageView.layer.borderColor = UIColor.color(0xBBBBBB).CGColor
+        slideImageView.layer.borderWidth = 1.0
+        slideImageView.backgroundColor = UIColor.blackColor()
     }
     
     func configure(slideUrl: String) {
-        slideImageView.sd_setImageWithURL(NSURL(string: slideUrl))
+        println(slideUrl)
+        slideImageView.sd_setImageWithURL(NSURL(string: slideUrl),
+            completed: { (image, error, type, URL) -> Void in
+                if error == nil {
+                    self.slideImageView.alpha = 0
+                    self.slideImageView.image = image
+                    UIView.animateWithDuration(0.25,
+                        animations: { () -> Void in
+                            self.slideImageView.alpha = 1
+                    })
+                }
+                else {
+                    println(error!)
+                }
+        })
     }
     
 }

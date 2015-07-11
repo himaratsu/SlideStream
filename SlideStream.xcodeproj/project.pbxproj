@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2006742E1B5104190085EBFC /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006742D1B5104190085EBFC /* Util.swift */; };
 		B7122F3FD11F404EA272353F /* Pods_SlideStream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76AE87B2349C255E8B8D86CB /* Pods_SlideStream.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D916A3451B4A557500B96506 /* SlideService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D916A3441B4A557500B96506 /* SlideService.swift */; };
 		D916A3481B4A561C00B96506 /* SlideParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D916A3471B4A561C00B96506 /* SlideParser.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2006742D1B5104190085EBFC /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		6F2F5FF82D334AAAF03693E4 /* Pods-SlideStream.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlideStream.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlideStream/Pods-SlideStream.release.xcconfig"; sourceTree = "<group>"; };
 		76AE87B2349C255E8B8D86CB /* Pods_SlideStream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlideStream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7745A0A553F98C90442FF573 /* Pods-SlideStream.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlideStream.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlideStream/Pods-SlideStream.debug.xcconfig"; sourceTree = "<group>"; };
@@ -75,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2006742C1B51040A0085EBFC /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				2006742D1B5104190085EBFC /* Util.swift */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
 		4BB2ED221B11A96DA479CF36 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +133,7 @@
 		D9B504301B42E0C4002927F3 /* SlideStream */ = {
 			isa = PBXGroup;
 			children = (
+				2006742C1B51040A0085EBFC /* Library */,
 				D9B504541B42E2E2002927F3 /* View */,
 				D9B504531B42E2DD002927F3 /* Model */,
 				D9B504331B42E0C4002927F3 /* AppDelegate.swift */,
@@ -363,6 +374,7 @@
 				D916A3481B4A561C00B96506 /* SlideParser.swift in Sources */,
 				D9B504341B42E0C4002927F3 /* AppDelegate.swift in Sources */,
 				D9B504581B42E503002927F3 /* Slide.swift in Sources */,
+				2006742E1B5104190085EBFC /* Util.swift in Sources */,
 				D9B5045E1B42E6AA002927F3 /* SlideContentCell.swift in Sources */,
 				D916A3451B4A557500B96506 /* SlideService.swift in Sources */,
 			);
