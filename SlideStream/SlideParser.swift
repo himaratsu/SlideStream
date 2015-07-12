@@ -16,8 +16,6 @@ class SlideParser {
         for dict in json {
             if let title = dict["title"] as? String,
                 let link = dict["link"] as? String {
-                    println("title: \(title)")
-                    println(link)
                     
                     let description = dict["description"] as? String ?? ""
                     let hatebuCount = dict["hatebu_count"] as? Int ?? 0

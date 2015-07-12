@@ -23,7 +23,7 @@ class SlideContentCell: UITableViewCell {
     }
     
     func configure(slideUrl: String) {
-        println(slideUrl)
+        print(slideUrl)
         slideImageView.sd_setImageWithURL(NSURL(string: slideUrl),
             completed: { (image, error, type, URL) -> Void in
                 if error == nil {
@@ -35,7 +35,7 @@ class SlideContentCell: UITableViewCell {
                     })
                 }
                 else {
-                    println(error!)
+                    print(error!)
                 }
         })
     }

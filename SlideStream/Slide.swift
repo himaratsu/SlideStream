@@ -41,13 +41,13 @@ class Slide {
         case .SlideShare:
             let replaceString = self.imageBaseUrl.stringByReplacingOccurrencesOfString("#No",
                 withString: "\(index+1)",
-                options: nil,
+                options: [],
                 range: nil)
             return replaceString
         case .SpeakerDeck:
             let replaceString = self.imageBaseUrl.stringByReplacingOccurrencesOfString("#No",
                 withString: "\(index)",
-                options: nil,
+                options: [],
                 range: nil)
             return replaceString
         case .NotFound:

@@ -35,6 +35,8 @@ class SlideCell: UITableViewCell {
                         animations: { () -> Void in
                             self.thumbImageView.alpha = 1
                     })
+                } else {
+                    print(URL)
                 }
         })
         titleLabel.text = slide.title

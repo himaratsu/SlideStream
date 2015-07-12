@@ -29,7 +29,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         service.requestSlides { (slides, error) -> Void in
             
             if let _ = error {
-                println("#################### error #####################")
+                print("#################### error #####################")
             }
             else {
                 self.slides = slides!

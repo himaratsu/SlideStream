@@ -16,23 +16,12 @@
 		D9B504391B42E0C4002927F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9B504371B42E0C4002927F3 /* Main.storyboard */; };
 		D9B5043B1B42E0C4002927F3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9B5043A1B42E0C4002927F3 /* Images.xcassets */; };
 		D9B5043E1B42E0C4002927F3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9B5043C1B42E0C4002927F3 /* LaunchScreen.xib */; };
-		D9B5044A1B42E0C4002927F3 /* SlideStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B504491B42E0C4002927F3 /* SlideStreamTests.swift */; };
 		D9B504561B42E2F1002927F3 /* SlideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B504551B42E2F1002927F3 /* SlideCell.swift */; };
 		D9B504581B42E503002927F3 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B504571B42E503002927F3 /* Slide.swift */; };
 		D9B5045C1B42E62E002927F3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5045B1B42E62E002927F3 /* DetailViewController.swift */; };
 		D9B5045E1B42E6AA002927F3 /* SlideContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B5045D1B42E6AA002927F3 /* SlideContentCell.swift */; };
 		D9B504611B42E937002927F3 /* DetailTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B504601B42E937002927F3 /* DetailTitleCell.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		D9B504441B42E0C4002927F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D9B504261B42E0C4002927F3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D9B5042D1B42E0C4002927F3;
-			remoteInfo = SlideStream;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2006742D1B5104190085EBFC /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
@@ -48,9 +37,6 @@
 		D9B504381B42E0C4002927F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D9B5043A1B42E0C4002927F3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D9B5043D1B42E0C4002927F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		D9B504431B42E0C4002927F3 /* SlideStreamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlideStreamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9B504481B42E0C4002927F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D9B504491B42E0C4002927F3 /* SlideStreamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideStreamTests.swift; sourceTree = "<group>"; };
 		D9B504551B42E2F1002927F3 /* SlideCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideCell.swift; sourceTree = "<group>"; };
 		D9B504571B42E503002927F3 /* Slide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
 		D9B5045B1B42E62E002927F3 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -64,13 +50,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7122F3FD11F404EA272353F /* Pods_SlideStream.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D9B504401B42E0C4002927F3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				D9B504301B42E0C4002927F3 /* SlideStream */,
-				D9B504461B42E0C4002927F3 /* SlideStreamTests */,
 				D9B5042F1B42E0C4002927F3 /* Products */,
 				4BB2ED221B11A96DA479CF36 /* Pods */,
 				F6ED164146736A9D6A25AF08 /* Frameworks */,
@@ -125,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				D9B5042E1B42E0C4002927F3 /* SlideStream.app */,
-				D9B504431B42E0C4002927F3 /* SlideStreamTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,23 +127,6 @@
 			isa = PBXGroup;
 			children = (
 				D9B504321B42E0C4002927F3 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		D9B504461B42E0C4002927F3 /* SlideStreamTests */ = {
-			isa = PBXGroup;
-			children = (
-				D9B504491B42E0C4002927F3 /* SlideStreamTests.swift */,
-				D9B504471B42E0C4002927F3 /* Supporting Files */,
-			);
-			path = SlideStreamTests;
-			sourceTree = "<group>";
-		};
-		D9B504471B42E0C4002927F3 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D9B504481B42E0C4002927F3 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -239,39 +199,18 @@
 			productReference = D9B5042E1B42E0C4002927F3 /* SlideStream.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D9B504421B42E0C4002927F3 /* SlideStreamTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D9B504501B42E0C4002927F3 /* Build configuration list for PBXNativeTarget "SlideStreamTests" */;
-			buildPhases = (
-				D9B5043F1B42E0C4002927F3 /* Sources */,
-				D9B504401B42E0C4002927F3 /* Frameworks */,
-				D9B504411B42E0C4002927F3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D9B504451B42E0C4002927F3 /* PBXTargetDependency */,
-			);
-			name = SlideStreamTests;
-			productName = SlideStreamTests;
-			productReference = D9B504431B42E0C4002927F3 /* SlideStreamTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		D9B504261B42E0C4002927F3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Ryosuke Hiramatsu";
 				TargetAttributes = {
 					D9B5042D1B42E0C4002927F3 = {
 						CreatedOnToolsVersion = 6.3.1;
-					};
-					D9B504421B42E0C4002927F3 = {
-						CreatedOnToolsVersion = 6.3.1;
-						TestTargetID = D9B5042D1B42E0C4002927F3;
 					};
 				};
 			};
@@ -289,7 +228,6 @@
 			projectRoot = "";
 			targets = (
 				D9B5042D1B42E0C4002927F3 /* SlideStream */,
-				D9B504421B42E0C4002927F3 /* SlideStreamTests */,
 			);
 		};
 /* End PBXProject section */
@@ -302,13 +240,6 @@
 				D9B504391B42E0C4002927F3 /* Main.storyboard in Resources */,
 				D9B5043E1B42E0C4002927F3 /* LaunchScreen.xib in Resources */,
 				D9B5043B1B42E0C4002927F3 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D9B504411B42E0C4002927F3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,23 +311,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D9B5043F1B42E0C4002927F3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D9B5044A1B42E0C4002927F3 /* SlideStreamTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D9B504451B42E0C4002927F3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D9B5042D1B42E0C4002927F3 /* SlideStream */;
-			targetProxy = D9B504441B42E0C4002927F3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D9B504371B42E0C4002927F3 /* Main.storyboard */ = {
@@ -521,40 +436,6 @@
 			};
 			name = Release;
 		};
-		D9B504511B42E0C4002927F3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SlideStreamTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlideStream.app/SlideStream";
-			};
-			name = Debug;
-		};
-		D9B504521B42E0C4002927F3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SlideStreamTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlideStream.app/SlideStream";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -572,15 +453,6 @@
 			buildConfigurations = (
 				D9B5044E1B42E0C4002927F3 /* Debug */,
 				D9B5044F1B42E0C4002927F3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D9B504501B42E0C4002927F3 /* Build configuration list for PBXNativeTarget "SlideStreamTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D9B504511B42E0C4002927F3 /* Debug */,
-				D9B504521B42E0C4002927F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

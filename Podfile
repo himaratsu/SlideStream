@@ -3,7 +3,8 @@
 use_frameworks!
 
 target 'SlideStream' do
-  pod 'Alamofire'
+#  pod 'Alamofire'
+  pod 'Alamofire', :git => "https://github.com/Alamofire/Alamofire", :branch => "swift-2.0"
   pod 'SDWebImage'
 end
 

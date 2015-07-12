@@ -9,25 +9,24 @@
 import UIKit
 import Alamofire
 
-private let apiUrl = "http://slide-stream.herokuapp.com/entries.json"
+private let apiUrl = "https://slide-stream.herokuapp.com/entries.json"
 
 class SlideService {
    
     func requestSlides(completionHandler:([Slide]?, NSError?) -> Void) {
         
         Alamofire.request(.GET,
-            apiUrl,
+            URLString: apiUrl,
             parameters: nil,
             encoding: ParameterEncoding.URL)
             .response { (req, res, data, error) -> Void in
                 
                 if let error = error {
-                    println(error)
+                    print(error)
                 }
                 else {
-                    if let json = NSJSONSerialization.JSONObjectWithData(data as! NSData,
-                    options: NSJSONReadingOptions.AllowFragments,
-                    error: nil) as? Array<[String:AnyObject]> {
+                    if let json = try! NSJSONSerialization.JSONObjectWithData(data as! NSData,
+                    options: NSJSONReadingOptions.AllowFragments) as? Array<[String:AnyObject]> {
                         
                         let parser = SlideParser()
                         let slides = parser.parse(json)

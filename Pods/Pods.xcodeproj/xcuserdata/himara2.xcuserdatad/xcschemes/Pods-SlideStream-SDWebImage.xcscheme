@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "427A86379E1D6EFAAD4AD4AE"
+               BlueprintIdentifier = "C395122AB2B30F0A9440A5D3"
                BuildableName = "SDWebImage.framework"
                BlueprintName = "Pods-SlideStream-SDWebImage"
                ReferencedContainer = "container:Pods.xcodeproj">
