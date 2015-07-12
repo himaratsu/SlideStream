@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-SlideStream-SVProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SlideStream.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>C395122AB2B30F0A9440A5D3</key>
+		<key>0392D56D6A1B8B0CE3E89AB7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E10F8065B454A6141FD9EF3C</key>
+		<key>3247BBCAECECBF9A51E4E481</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FEEDA5654EBA925BC9B303CC</key>
+		<key>887B8339B893344512A4FD53</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B9F96EA5B19ADBC8D0D97A2D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "887B8339B893344512A4FD53"
-               BuildableName = "Alamofire.framework"
-               BlueprintName = "Pods-SlideStream-Alamofire"
+               BlueprintIdentifier = "B9F96EA5B19ADBC8D0D97A2D"
+               BuildableName = "SVProgressHUD.framework"
+               BlueprintName = "Pods-SlideStream-SVProgressHUD"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

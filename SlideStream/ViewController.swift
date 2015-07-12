@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-
+import SVProgressHUD
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -31,6 +31,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     private func reload(mode mode: Mode = .All) {
+        
+        SVProgressHUD.show()
+        
         let service = SlideService()
         service.requestSlides(mode) { (slides, error) -> Void in
             if let _ = error {
@@ -38,9 +41,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             else {
                 self.slides = slides!
+                self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
                 self.tableView.reloadData()
             }
             
+            SVProgressHUD.dismiss()
             self.refreshControl.endRefreshing()
         }
     }
@@ -105,7 +110,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
 
 enum Mode: String {
-    case Recently = "this_week"
+    case Recently = "recently"
+    case Latest = "this_week"
     case Popular = "this_month"
     case All = "all"
     
@@ -114,8 +120,10 @@ enum Mode: String {
         case 0:
             return Mode.Recently
         case 1:
-            return Mode.Popular
+            return Mode.Latest
         case 2:
+            return Mode.Popular
+        case 3:
             return Mode.All
         default:
             return Mode.All

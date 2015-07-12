@@ -13,6 +13,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
 
     @IBOutlet weak private var hatenaCommentButton: UIBarButtonItem!
     @IBOutlet weak private var pageProgressView: PageProgressView!
+    @IBOutlet weak var serviceIconItem: UIBarButtonItem!
     
     enum TableViewSectionType: Int {
         case Title = 0
@@ -49,11 +50,24 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             pageProgressView.setCurrentPage(1, totalPage: slide.totalCount)
             
             setUpBookmarkCount()
+            
+            setUpServiceIcon()
         }
     }
     
     private func setUpBookmarkCount() {
         hatenaCommentButton.title = "\(slide!.hatebu)users"
+    }
+    
+    private func setUpServiceIcon() {
+        switch slide!.source {
+        case .SlideShare:
+            serviceIconItem.image = UIImage(named: "ss_icon")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        case .SpeakerDeck:
+            serviceIconItem.image = UIImage(named: "sd_icon")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        default:
+            serviceIconItem.image = nil
+        }
     }
 
     // MARK: - UITableViewDataSource
@@ -144,5 +158,14 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             UIApplication.sharedApplication().openURL(NSURL(string: hatenaCommentURL)!)
         }
 
+    }
+    
+    @IBAction func serviceIconItemTouched(sender: AnyObject) {
+        if #available(iOS 9.0, *) {
+            let safariVC = SFSafariViewController(URL: NSURL(string: slide!.link)!)
+            self.navigationController?.pushViewController(safariVC, animated: true)
+        } else {
+            UIApplication.sharedApplication().openURL(NSURL(string: slide!.link)!)
+        }
     }
 }

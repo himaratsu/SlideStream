@@ -15,9 +15,14 @@ class SlideService {
    
     func requestSlides(mode: Mode, completionHandler:([Slide]?, NSError?) -> Void) {
         
+        var params = ["mode": mode.rawValue]
+        if mode == Mode.Latest {
+            params["sort"] = "latest"
+        }
+        
         Alamofire.request(.GET,
             URLString: apiUrl,
-            parameters: ["mode": mode.rawValue],
+            parameters: params,
             encoding: ParameterEncoding.URL)
             .response { (req, res, data, error) -> Void in
                 
