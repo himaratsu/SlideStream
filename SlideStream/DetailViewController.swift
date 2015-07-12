@@ -47,8 +47,13 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             tableView.reloadData()
             
             pageProgressView.setCurrentPage(1, totalPage: slide.totalCount)
+            
+            setUpBookmarkCount()
         }
-        
+    }
+    
+    private func setUpBookmarkCount() {
+        hatenaCommentButton.title = "\(slide!.hatebu)users"
     }
 
     // MARK: - UITableViewDataSource
@@ -94,7 +99,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let contentOffsetY = scrollView.contentOffset.y
-
+        
         if contentOffsetY > 320 {
             pageProgressView.hidden = false
             
@@ -106,6 +111,16 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
 
     }
     
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        self.pageProgressView.showWithAnimation()
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * NSEC_PER_SEC))
+        dispatch_after(delay, dispatch_get_main_queue()) { () -> Void in
+            self.pageProgressView.hideWithAnimation()
+        }
+    }
     
     // MARK: - Action
     

@@ -37,7 +37,23 @@ class PageProgressView: UIView {
     }
     
     func setCurrentPage(currentPage: Int, totalPage: Int) {
-        progressLabel.text = "\(currentPage) / \(totalPage)"
+        progressLabel.text = "\(currentPage) / \(totalPage) 枚"
+    }
+    
+    func showWithAnimation() {
+        if self.alpha == 0 {
+            UIView.animateWithDuration(0.5) { () -> Void in
+                self.alpha = 1
+            }
+        }
+    }
+    
+    func hideWithAnimation() {
+        if self.alpha == 1 {
+            UIView.animateWithDuration(0.3) { () -> Void in
+                self.alpha = 0
+            }
+        }
     }
 
 }

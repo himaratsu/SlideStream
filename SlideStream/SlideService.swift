@@ -33,7 +33,9 @@ class SlideService {
                         let parser = SlideParser()
                         let slides = parser.parse(json)
                         
-                        completionHandler(slides, nil)
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            completionHandler(slides, nil)
+                        })
                         
                     }
                 }
