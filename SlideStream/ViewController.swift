@@ -11,23 +11,22 @@ import Alamofire
 
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-
     
     @IBOutlet weak private var tableView: UITableView!
     private var slides = [Slide]()
     
+    private var currentMode = Mode.Today
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        reload()
+        reload(mode: currentMode)
     }
     
-    private func reload() {
+    private func reload(mode mode: Mode = .All) {
     
         let service = SlideService()
-        service.requestSlides { (slides, error) -> Void in
-            
+        service.requestSlides(mode) { (slides, error) -> Void in
             if let _ = error {
                 print("#################### error #####################")
             }
@@ -35,8 +34,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.slides = slides!
                 self.tableView.reloadData()
             }
+
         }
-        
     }
 
 
@@ -72,7 +71,45 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
     }
+    
+    
+    // MARK: - Action
+    
+    @IBAction func segmentedControlChanged(sender: UISegmentedControl) {
+        
+        let selectIndex = sender.selectedSegmentIndex
+        let mode = Mode.modeWithIndex(selectIndex)
+        
+        if currentMode != mode {
+            reload(mode: mode)
+            currentMode = mode
+        }
+        
+    }
+    
 
 
 }
 
+
+enum Mode: String {
+    case Today = "today"
+    case ThisWeek = "this_week"
+    case ThisMonth = "this_month"
+    case All = "all"
+    
+    static func modeWithIndex(index: Int) -> Mode {
+        switch index {
+        case 0:
+            return Mode.Today
+        case 1:
+            return Mode.ThisWeek
+        case 2:
+            return Mode.ThisMonth
+        case 3:
+            return Mode.All
+        default:
+            return Mode.All
+        }
+    }
+}

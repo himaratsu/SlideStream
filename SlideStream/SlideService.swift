@@ -13,13 +13,15 @@ private let apiUrl = "https://slide-stream.herokuapp.com/entries.json"
 
 class SlideService {
    
-    func requestSlides(completionHandler:([Slide]?, NSError?) -> Void) {
+    func requestSlides(mode: Mode, completionHandler:([Slide]?, NSError?) -> Void) {
         
         Alamofire.request(.GET,
             URLString: apiUrl,
-            parameters: nil,
+            parameters: ["mode": mode.rawValue],
             encoding: ParameterEncoding.URL)
             .response { (req, res, data, error) -> Void in
+                
+                 print(req?.URL)
                 
                 if let error = error {
                     print(error)
