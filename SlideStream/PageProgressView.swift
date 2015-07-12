@@ -45,6 +45,8 @@ class PageProgressView: UIView {
             UIView.animateWithDuration(0.5) { () -> Void in
                 self.alpha = 1
             }
+        } else {
+            self.alpha = 1
         }
     }
     

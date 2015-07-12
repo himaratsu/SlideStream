@@ -13,18 +13,24 @@ import Alamofire
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak private var tableView: UITableView!
+    private let refreshControl = UIRefreshControl()
     private var slides = [Slide]()
-    
     private var currentMode = Mode.Recently
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpRefreshControl()
+        
         reload(mode: currentMode)
     }
     
-    private func reload(mode mode: Mode = .All) {
+    private func setUpRefreshControl() {
+        refreshControl.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl)
+    }
     
+    private func reload(mode mode: Mode = .All) {
         let service = SlideService()
         service.requestSlides(mode) { (slides, error) -> Void in
             if let _ = error {
@@ -34,10 +40,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.slides = slides!
                 self.tableView.reloadData()
             }
-
+            
+            self.refreshControl.endRefreshing()
         }
     }
 
+    
+    // MARK: - UIRefreshControl
+    
+    func refresh() {
+        reload(mode: currentMode)
+    }
+    
 
     // MARK: - UITableViewDataSource
     
