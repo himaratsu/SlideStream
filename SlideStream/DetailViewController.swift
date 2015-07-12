@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import SafariServices
 
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak private var hatenaCommentButton: UIBarButtonItem!
+    @IBOutlet weak private var pageProgressView: PageProgressView!
+    
     enum TableViewSectionType: Int {
         case Title = 0
         case SlideContent
@@ -41,6 +45,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         if let slide = slide {
             self.title = slide.title
             tableView.reloadData()
+            
+            pageProgressView.setCurrentPage(1, totalPage: slide.totalCount)
         }
         
     }
@@ -82,15 +88,45 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return TableViewSectionType.heightForCell(indexPath)
     }
+
+    
+    // MARK: - ScrollViewDelegate
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let contentOffsetY = scrollView.contentOffset.y
+
+        if contentOffsetY > 320 {
+            pageProgressView.hidden = false
+            
+            let currentPage = Int((contentOffsetY + 19 + 530) / 270 + 1)
+            pageProgressView.setCurrentPage(currentPage, totalPage: slide!.totalCount)
+        } else {
+            pageProgressView.hidden = true
+        }
+
+    }
     
     
     // MARK: - Action
     
+    @IBAction func backButtonTouched(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     @IBAction private func actionButtonTouched(sender: AnyObject) {
-        
-        if UIApplication.sharedApplication().canOpenURL(NSURL(string: slide!.link)!) {
-            UIApplication.sharedApplication().openURL(NSURL(string: slide!.link)!)
+        let activityView = UIActivityViewController(activityItems: [slide!.link],
+            applicationActivities: [])
+        self.presentViewController(activityView, animated: true, completion: nil)
+    }
+    
+    @IBAction func hatenaCommentButtonTouched(sender: AnyObject) {
+        let hatenaCommentURL = "http://b.hatena.ne.jp/entry/\(slide!.link)"
+        if #available(iOS 9.0, *) {
+            let safariVC = SFSafariViewController(URL: NSURL(string: hatenaCommentURL)!)
+            self.navigationController?.pushViewController(safariVC, animated: true)
+        } else {
+            UIApplication.sharedApplication().openURL(NSURL(string: hatenaCommentURL)!)
         }
-        
+
     }
 }

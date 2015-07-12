@@ -23,12 +23,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tfN-96-fWG">
+                                <rect key="frame" x="5" y="69" width="310" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="fEl-WJ-ywP"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="最近の話題"/>
+                                    <segment title="人気"/>
+                                    <segment title="殿堂入り"/>
+                                </segments>
+                                <color key="tintColor" red="0.023512739986098041" green="0.41706563027724003" blue="0.9080717009417989" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="segmentedControlChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="0e3-6h-LkD"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koZ-cT-XgM" userLabel="BorderView">
+                                <rect key="frame" x="0.0" y="105" width="320" height="2"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="5gz-z8-DDn"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="114" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cW9-0T-wwr">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="523"/>
+                                <rect key="frame" x="0.0" y="107" width="320" height="461"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SlideCell" rowHeight="114" id="XfI-5u-KDK" customClass="SlideCell" customModule="SlideStream" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="114"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="114"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XfI-5u-KDK" id="qeg-lz-Kwi">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="113.5"/>
@@ -97,46 +119,22 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="bpg-cQ-ePb"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tfN-96-fWG">
-                                <rect key="frame" x="9" y="529" width="303" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="I8q-yn-Y1n"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="今日"/>
-                                    <segment title="今週"/>
-                                    <segment title="今月"/>
-                                    <segment title="殿堂入り"/>
-                                </segments>
-                                <color key="tintColor" red="0.023512739986098041" green="0.41706563027724003" blue="0.9080717009417989" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="segmentedControlChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="0e3-6h-LkD"/>
-                                </connections>
-                            </segmentedControl>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="koZ-cT-XgM" userLabel="BorderView">
-                                <rect key="frame" x="0.0" y="523" width="320" height="2"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="2b4-nI-ype"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="cW9-0T-wwr" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="53q-iB-qGu"/>
-                            <constraint firstItem="cW9-0T-wwr" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="7fj-BT-Qwt"/>
+                            <constraint firstItem="koZ-cT-XgM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="2fI-v5-JaO"/>
+                            <constraint firstItem="cW9-0T-wwr" firstAttribute="top" secondItem="koZ-cT-XgM" secondAttribute="bottom" id="3RF-r3-ftY"/>
                             <constraint firstItem="tfN-96-fWG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-7" id="FAc-y4-dbK"/>
-                            <constraint firstItem="koZ-cT-XgM" firstAttribute="top" secondItem="cW9-0T-wwr" secondAttribute="bottom" id="I2n-bk-mRc"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="tfN-96-fWG" secondAttribute="bottom" constant="5" id="MhK-KM-Wy0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="koZ-cT-XgM" secondAttribute="trailing" constant="-16" id="YZ8-1I-TGy"/>
-                            <constraint firstItem="koZ-cT-XgM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="YjY-Qn-arD"/>
-                            <constraint firstItem="tfN-96-fWG" firstAttribute="top" secondItem="koZ-cT-XgM" secondAttribute="bottom" constant="5" id="Ypx-in-vj8"/>
-                            <constraint firstAttribute="trailing" secondItem="cW9-0T-wwr" secondAttribute="trailing" id="aYj-QY-tD6"/>
+                            <constraint firstAttribute="trailing" secondItem="cW9-0T-wwr" secondAttribute="trailing" id="Xhj-vL-dgs"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="cW9-0T-wwr" secondAttribute="bottom" id="arZ-cE-SSQ"/>
+                            <constraint firstItem="tfN-96-fWG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="5" id="bGm-vh-8V8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tfN-96-fWG" secondAttribute="trailing" constant="-8" id="flf-ZR-9js"/>
-                            <constraint firstItem="tfN-96-fWG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-7" id="nfk-Us-gxd"/>
-                            <constraint firstItem="tfN-96-fWG" firstAttribute="top" secondItem="cW9-0T-wwr" secondAttribute="bottom" constant="6" id="tn9-HH-vOP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tfN-96-fWG" secondAttribute="trailing" constant="-8" id="yDk-Ee-VEd"/>
+                            <constraint firstItem="tfN-96-fWG" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="5" id="gnj-Fo-jxI"/>
+                            <constraint firstItem="koZ-cT-XgM" firstAttribute="top" secondItem="tfN-96-fWG" secondAttribute="bottom" constant="5" id="iQr-KV-Npk"/>
+                            <constraint firstItem="cW9-0T-wwr" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="iYs-DV-LWa"/>
+                            <constraint firstAttribute="trailing" secondItem="koZ-cT-XgM" secondAttribute="trailing" id="srg-Vi-XaF"/>
+                            <constraint firstAttribute="trailing" secondItem="tfN-96-fWG" secondAttribute="trailing" constant="5" id="wZx-Nb-zBU"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="cW9-0T-wwr" secondAttribute="bottom" id="wp2-Y3-auV"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -169,7 +167,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="224" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3Ly-JH-LQN">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SlideContentCell" rowHeight="263" id="DMi-PD-xJH" customClass="SlideContentCell" customModule="SlideStream" customModuleProvider="target">
@@ -228,23 +226,63 @@
                                     <outlet property="delegate" destination="fTk-Y8-c3p" id="1Se-q0-YWB"/>
                                 </connections>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D24-ri-tAA">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="rNP-C1-Tbg"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem image="back-50" id="ZL6-qA-onq">
+                                        <connections>
+                                            <action selector="backButtonTouched:" destination="fTk-Y8-c3p" id="JgJ-3U-ihJ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="LYI-gU-8FR"/>
+                                    <barButtonItem title="283users" id="qEe-8G-KZd">
+                                        <connections>
+                                            <action selector="hatenaCommentButtonTouched:" destination="fTk-Y8-c3p" id="dYW-lz-h9B"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ODV-O0-txm"/>
+                                    <barButtonItem systemItem="action" id="Led-SE-SBA">
+                                        <connections>
+                                            <action selector="actionButtonTouched:" destination="fTk-Y8-c3p" id="P8X-eb-xsx"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l2D-5u-Pih" customClass="PageProgressView" customModule="SlideStream" customModuleProvider="target">
+                                <rect key="frame" x="88.5" y="455" width="143" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="6ws-HG-WBt"/>
+                                    <constraint firstAttribute="width" constant="143" id="Ohb-hH-PL1"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="MHT-bS-dhv" firstAttribute="top" secondItem="D24-ri-tAA" secondAttribute="bottom" id="165-Nx-Xqj"/>
                             <constraint firstItem="MHT-bS-dhv" firstAttribute="top" secondItem="3Ly-JH-LQN" secondAttribute="bottom" id="B0M-Rd-sJy"/>
                             <constraint firstItem="3Ly-JH-LQN" firstAttribute="top" secondItem="WCw-yJ-K0Y" secondAttribute="top" id="CJH-3M-Uzq"/>
+                            <constraint firstItem="D24-ri-tAA" firstAttribute="leading" secondItem="WCw-yJ-K0Y" secondAttribute="leading" id="FHg-Mz-h6I"/>
+                            <constraint firstItem="D24-ri-tAA" firstAttribute="top" secondItem="3Ly-JH-LQN" secondAttribute="bottom" id="M9Y-XR-S2E"/>
                             <constraint firstItem="3Ly-JH-LQN" firstAttribute="leading" secondItem="WCw-yJ-K0Y" secondAttribute="leading" id="Z8D-jG-kR6"/>
+                            <constraint firstItem="D24-ri-tAA" firstAttribute="top" secondItem="l2D-5u-Pih" secondAttribute="bottom" constant="20" id="efK-lG-gQN"/>
+                            <constraint firstItem="l2D-5u-Pih" firstAttribute="centerX" secondItem="WCw-yJ-K0Y" secondAttribute="centerX" id="iGe-kk-Q5R"/>
+                            <constraint firstAttribute="trailing" secondItem="D24-ri-tAA" secondAttribute="trailing" id="oGm-Oq-Bub"/>
                             <constraint firstAttribute="trailing" secondItem="3Ly-JH-LQN" secondAttribute="trailing" id="yb7-dv-MD3"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="B0M-Rd-sJy"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="KEo-Gt-Fv6">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="o0z-U5-S0f">
-                            <connections>
-                                <action selector="actionButtonTouched:" destination="fTk-Y8-c3p" id="wMI-R5-kWJ"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Title" id="KEo-Gt-Fv6"/>
                     <connections>
+                        <outlet property="hatenaCommentButton" destination="qEe-8G-KZd" id="3sc-hb-JBz"/>
+                        <outlet property="pageProgressView" destination="l2D-5u-Pih" id="LCs-9E-Vb2"/>
                         <outlet property="tableView" destination="3Ly-JH-LQN" id="zHp-0b-bRT"/>
                     </connections>
                 </viewController>
@@ -272,4 +310,7 @@
             <point key="canvasLocation" x="303" y="650"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back-50" width="25" height="25"/>
+    </resources>
 </document>

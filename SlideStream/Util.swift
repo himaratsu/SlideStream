@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SDWebImage
 
 extension UIColor {
     class func color(hex: Int, alpha: Double = 1.0) -> UIColor {
@@ -28,7 +29,6 @@ extension UIColor {
 }
 
 
-// format int
 extension Int {
     func format(f: String) -> String {
         return String(format: "%\(f)d", self)
@@ -36,7 +36,6 @@ extension Int {
 }
 
 
-// show className
 extension NSObject {
     public class var className:String {
         get {
@@ -46,3 +45,32 @@ extension NSObject {
 }
 
 
+extension UIImageView {
+    func loadImageURLWithEasingAnimation(imageUrl: String) {
+        SDWebImageManager.sharedManager().imageCache.queryDiskCacheForKey(imageUrl)
+            { (image, SDImageCacheType) -> Void in
+            
+            if let image = image {
+                self.image = image
+            } else {
+                self.loadImageWithURL(imageUrl)
+            }
+        }
+    }
+    
+    private func loadImageWithURL(imageUrl: String) {
+        self.sd_setImageWithURL(NSURL(string: imageUrl),
+            completed: { (image, error, type, URL) -> Void in
+                if error == nil {
+                    self.alpha = 0
+                    self.image = image
+                    UIView.animateWithDuration(0.15,
+                        animations: { () -> Void in
+                            self.alpha = 1
+                    })
+                } else {
+                    print("######load image error ####### \(URL)")
+                }
+        })
+    }
+}

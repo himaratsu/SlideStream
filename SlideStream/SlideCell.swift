@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SDWebImage
 
 class SlideCell: UITableViewCell {
 
@@ -25,20 +24,13 @@ class SlideCell: UITableViewCell {
         thumbImageView.layer.borderWidth = 1.0
     }
     
+    override func prepareForReuse() {
+        thumbImageView.image = nil
+    }
+    
     func configureSlide(slide: Slide, index:Int) {
-        thumbImageView.sd_setImageWithURL(NSURL(string: slide.slideThumbUrl()),
-            completed: { (image, error, type, URL) -> Void in
-                if error == nil {
-                    self.thumbImageView.alpha = 0
-                    self.thumbImageView.image = image
-                    UIView.animateWithDuration(0.25,
-                        animations: { () -> Void in
-                            self.thumbImageView.alpha = 1
-                    })
-                } else {
-                    print(URL)
-                }
-        })
+        
+        thumbImageView.loadImageURLWithEasingAnimation(slide.slideThumbUrl())
         titleLabel.text = slide.title
         sourceLabel.text = slide.source.rawValue
         hatebuLabel.text = "\(slide.hatebu) users"
@@ -50,5 +42,6 @@ class SlideCell: UITableViewCell {
             backgroundColor = UIColor.color(0xF2F2F2)
         }
     }
+
 
 }

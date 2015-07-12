@@ -23,21 +23,7 @@ class SlideContentCell: UITableViewCell {
     }
     
     func configure(slideUrl: String) {
-        print(slideUrl)
-        slideImageView.sd_setImageWithURL(NSURL(string: slideUrl),
-            completed: { (image, error, type, URL) -> Void in
-                if error == nil {
-                    self.slideImageView.alpha = 0
-                    self.slideImageView.image = image
-                    UIView.animateWithDuration(0.25,
-                        animations: { () -> Void in
-                            self.slideImageView.alpha = 1
-                    })
-                }
-                else {
-                    print(error!)
-                }
-        })
+        slideImageView.loadImageURLWithEasingAnimation(slideUrl)
     }
     
 }

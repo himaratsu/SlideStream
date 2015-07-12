@@ -29,7 +29,7 @@ class SlideParser {
                     else {
                         totalCount = 0
                     }
-                    let postdate = dict["postdate"] as? String ?? ""
+                    _ = dict["postdate"] as? String ?? ""
                     
                     let slide = Slide(title: title,
                         link: link,

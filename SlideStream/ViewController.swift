@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak private var tableView: UITableView!
     private var slides = [Slide]()
     
-    private var currentMode = Mode.Today
+    private var currentMode = Mode.Recently
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,27 +86,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
     }
-    
-
 
 }
 
 
 enum Mode: String {
-    case Today = "today"
-    case ThisWeek = "this_week"
-    case ThisMonth = "this_month"
+    case Recently = "this_week"
+    case Popular = "this_month"
     case All = "all"
     
     static func modeWithIndex(index: Int) -> Mode {
         switch index {
         case 0:
-            return Mode.Today
+            return Mode.Recently
         case 1:
-            return Mode.ThisWeek
+            return Mode.Popular
         case 2:
-            return Mode.ThisMonth
-        case 3:
             return Mode.All
         default:
             return Mode.All
