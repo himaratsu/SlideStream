@@ -8,19 +8,22 @@
 
 import UIKit
 import Alamofire
-import SVProgressHUD
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, RoundSearchButtonDelegate,
+OverlayTextFieldDelegate {
     
     @IBOutlet weak private var tableView: UITableView!
     private let refreshControl = UIRefreshControl()
     private var slides = [Slide]()
     private var currentMode = Mode.Recently
+    @IBOutlet weak var roundSearchButton: RoundSearchButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpRefreshControl()
+        
+        roundSearchButton.delegate = self
         
         reload(mode: currentMode)
     }
@@ -32,24 +35,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     private func reload(mode mode: Mode = .All) {
         
-        SVProgressHUD.show()
-        
         let service = SlideService()
         service.requestSlides(mode) { (slides, error) -> Void in
             if let _ = error {
-                print("#################### error #####################")
+                print("#################### error #####################", appendNewline: false)
             }
             else {
                 self.slides = slides!
                 self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
                 self.tableView.reloadData()
             }
-            
-            SVProgressHUD.dismiss()
+
             self.refreshControl.endRefreshing()
         }
     }
 
+    private func showSearchView() {
+        if let window = UIApplication.sharedApplication().delegate?.window!! {
+            let textField = OverlayTextField(frame: window.bounds)
+            textField.delegate = self
+            window.addSubview(textField)
+            
+            textField.textField.becomeFirstResponder()
+        }
+    }
     
     // MARK: - UIRefreshControl
     
@@ -104,6 +113,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             currentMode = mode
         }
         
+    }
+    
+    
+    // MARK: - RoundSearchButtonDelegate
+    
+    func searchButtonDidTouched() {
+        showSearchView()
+    }
+    
+    
+    // MARK: - OverlayTextFieldDelegate
+    
+    func didSearchWithUrl(url: String) {
+        let service = SlideService()
+        service.requestSlide(url) { (slide, error) -> Void in
+            if let error = error {
+                print("###### error ######")
+            } else {
+                print(slide)
+            }
+        }
     }
 
 }

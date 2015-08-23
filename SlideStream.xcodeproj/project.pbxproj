@@ -10,6 +10,11 @@
 		2006742E1B5104190085EBFC /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006742D1B5104190085EBFC /* Util.swift */; };
 		200CEE9D1B5283F5002EFE18 /* PageProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200CEE9C1B5283F5002EFE18 /* PageProgressView.swift */; };
 		200CEE9F1B528400002EFE18 /* PageProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 200CEE9E1B528400002EFE18 /* PageProgressView.xib */; };
+		20A63DB91B8A05770072A2BB /* RoundSearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A63DB81B8A05770072A2BB /* RoundSearchButton.swift */; };
+		20A63DBB1B8A057F0072A2BB /* RoundSearchButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A63DBA1B8A057F0072A2BB /* RoundSearchButton.xib */; };
+		20A63DBD1B8A09200072A2BB /* OverlayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A63DBC1B8A09200072A2BB /* OverlayTextField.swift */; };
+		20A63DBF1B8A092A0072A2BB /* OverlayTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A63DBE1B8A092A0072A2BB /* OverlayTextField.xib */; };
+		20A63DC11B8A0F490072A2BB /* SingleSlideParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A63DC01B8A0F490072A2BB /* SingleSlideParser.swift */; };
 		B7122F3FD11F404EA272353F /* Pods_SlideStream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76AE87B2349C255E8B8D86CB /* Pods_SlideStream.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D916A3451B4A557500B96506 /* SlideService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D916A3441B4A557500B96506 /* SlideService.swift */; };
 		D916A3481B4A561C00B96506 /* SlideParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D916A3471B4A561C00B96506 /* SlideParser.swift */; };
@@ -29,6 +34,11 @@
 		2006742D1B5104190085EBFC /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		200CEE9C1B5283F5002EFE18 /* PageProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageProgressView.swift; sourceTree = "<group>"; };
 		200CEE9E1B528400002EFE18 /* PageProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageProgressView.xib; sourceTree = "<group>"; };
+		20A63DB81B8A05770072A2BB /* RoundSearchButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundSearchButton.swift; sourceTree = "<group>"; };
+		20A63DBA1B8A057F0072A2BB /* RoundSearchButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundSearchButton.xib; sourceTree = "<group>"; };
+		20A63DBC1B8A09200072A2BB /* OverlayTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayTextField.swift; sourceTree = "<group>"; };
+		20A63DBE1B8A092A0072A2BB /* OverlayTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayTextField.xib; sourceTree = "<group>"; };
+		20A63DC01B8A0F490072A2BB /* SingleSlideParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleSlideParser.swift; sourceTree = "<group>"; };
 		6F2F5FF82D334AAAF03693E4 /* Pods-SlideStream.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlideStream.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlideStream/Pods-SlideStream.release.xcconfig"; sourceTree = "<group>"; };
 		76AE87B2349C255E8B8D86CB /* Pods_SlideStream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlideStream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7745A0A553F98C90442FF573 /* Pods-SlideStream.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlideStream.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlideStream/Pods-SlideStream.debug.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				D916A3471B4A561C00B96506 /* SlideParser.swift */,
+				20A63DC01B8A0F490072A2BB /* SingleSlideParser.swift */,
 			);
 			name = Parser;
 			sourceTree = "<group>";
@@ -153,6 +164,10 @@
 				D9B504601B42E937002927F3 /* DetailTitleCell.swift */,
 				200CEE9C1B5283F5002EFE18 /* PageProgressView.swift */,
 				200CEE9E1B528400002EFE18 /* PageProgressView.xib */,
+				20A63DB81B8A05770072A2BB /* RoundSearchButton.swift */,
+				20A63DBA1B8A057F0072A2BB /* RoundSearchButton.xib */,
+				20A63DBC1B8A09200072A2BB /* OverlayTextField.swift */,
+				20A63DBE1B8A092A0072A2BB /* OverlayTextField.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -212,6 +227,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Ryosuke Hiramatsu";
 				TargetAttributes = {
@@ -244,9 +260,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20A63DBB1B8A057F0072A2BB /* RoundSearchButton.xib in Resources */,
 				D9B504391B42E0C4002927F3 /* Main.storyboard in Resources */,
 				D9B5043E1B42E0C4002927F3 /* LaunchScreen.xib in Resources */,
 				200CEE9F1B528400002EFE18 /* PageProgressView.xib in Resources */,
+				20A63DBF1B8A092A0072A2BB /* OverlayTextField.xib in Resources */,
 				D9B5043B1B42E0C4002927F3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,9 +329,12 @@
 				D9B504361B42E0C4002927F3 /* ViewController.swift in Sources */,
 				D9B504561B42E2F1002927F3 /* SlideCell.swift in Sources */,
 				D9B5045C1B42E62E002927F3 /* DetailViewController.swift in Sources */,
+				20A63DBD1B8A09200072A2BB /* OverlayTextField.swift in Sources */,
+				20A63DC11B8A0F490072A2BB /* SingleSlideParser.swift in Sources */,
 				D916A3481B4A561C00B96506 /* SlideParser.swift in Sources */,
 				D9B504341B42E0C4002927F3 /* AppDelegate.swift in Sources */,
 				D9B504581B42E503002927F3 /* Slide.swift in Sources */,
+				20A63DB91B8A05770072A2BB /* RoundSearchButton.swift in Sources */,
 				2006742E1B5104190085EBFC /* Util.swift in Sources */,
 				D9B5045E1B42E6AA002927F3 /* SlideContentCell.swift in Sources */,
 				D916A3451B4A557500B96506 /* SlideService.swift in Sources */,
@@ -445,6 +466,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = SlideStream/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

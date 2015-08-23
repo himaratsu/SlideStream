@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoundSearchButton" customModule="SlideStream" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundView" destination="pRE-aI-Nig" id="1Hm-1Z-77k"/>
+                <outlet property="searchButton" destination="fD4-TI-CBo" id="Ly4-YB-Mve"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="55" height="56"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRE-aI-Nig">
+                    <rect key="frame" x="0.0" y="0.0" width="55" height="56"/>
+                    <color key="backgroundColor" red="0.30588235294117649" green="0.75294117647058822" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fD4-TI-CBo">
+                    <rect key="frame" x="0.0" y="0.0" width="55" height="56"/>
+                    <state key="normal" title="検索">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="searchButtonTouched:" destination="-1" eventType="touchUpInside" id="Sh2-jT-5XF"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="pRE-aI-Nig" secondAttribute="bottom" id="49n-ld-GOT"/>
+                <constraint firstItem="pRE-aI-Nig" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="CR3-qD-v7o"/>
+                <constraint firstItem="fD4-TI-CBo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="O5o-dQ-vOT"/>
+                <constraint firstItem="fD4-TI-CBo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="PgS-t6-WsP"/>
+                <constraint firstAttribute="bottom" secondItem="fD4-TI-CBo" secondAttribute="bottom" id="k5j-qK-nFT"/>
+                <constraint firstAttribute="trailing" secondItem="pRE-aI-Nig" secondAttribute="trailing" id="n21-Au-791"/>
+                <constraint firstItem="pRE-aI-Nig" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="o2F-u0-LaX"/>
+                <constraint firstAttribute="trailing" secondItem="fD4-TI-CBo" secondAttribute="trailing" id="oz6-YC-TZh"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="67.5" y="-2"/>
+        </view>
+    </objects>
+</document>

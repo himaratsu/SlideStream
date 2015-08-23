@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8152.3" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3Pc-WV-pq0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3Pc-WV-pq0">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8124.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -23,8 +23,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tfN-96-fWG">
-                                <rect key="frame" x="5" y="69" width="310" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tfN-96-fWG">
+                                <rect key="frame" x="5" y="69" width="310" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="fEl-WJ-ywP"/>
                                 </constraints>
@@ -120,15 +120,26 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="bpg-cQ-ePb"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qRY-Xq-86J" customClass="RoundSearchButton" customModule="SlideStream" customModuleProvider="target">
+                                <rect key="frame" x="239" y="483" width="65" height="65"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="Sve-fF-BJL"/>
+                                    <constraint firstAttribute="height" constant="65" id="bdk-Rs-E2P"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="koZ-cT-XgM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="2fI-v5-JaO"/>
                             <constraint firstItem="cW9-0T-wwr" firstAttribute="top" secondItem="koZ-cT-XgM" secondAttribute="bottom" id="3RF-r3-ftY"/>
                             <constraint firstItem="tfN-96-fWG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-7" id="FAc-y4-dbK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qRY-Xq-86J" secondAttribute="trailing" id="HSQ-ls-ILG"/>
+                            <constraint firstItem="qRY-Xq-86J" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="LZt-of-qqU"/>
                             <constraint firstAttribute="trailing" secondItem="cW9-0T-wwr" secondAttribute="trailing" id="Xhj-vL-dgs"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="cW9-0T-wwr" secondAttribute="bottom" id="arZ-cE-SSQ"/>
                             <constraint firstItem="tfN-96-fWG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="5" id="bGm-vh-8V8"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="qRY-Xq-86J" secondAttribute="bottom" constant="20" id="c93-f3-ZFh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tfN-96-fWG" secondAttribute="trailing" constant="-8" id="flf-ZR-9js"/>
                             <constraint firstItem="tfN-96-fWG" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="5" id="gnj-Fo-jxI"/>
                             <constraint firstItem="koZ-cT-XgM" firstAttribute="top" secondItem="tfN-96-fWG" secondAttribute="bottom" constant="5" id="iQr-KV-Npk"/>
@@ -136,17 +147,21 @@
                             <constraint firstAttribute="trailing" secondItem="koZ-cT-XgM" secondAttribute="trailing" id="srg-Vi-XaF"/>
                             <constraint firstAttribute="trailing" secondItem="tfN-96-fWG" secondAttribute="trailing" constant="5" id="wZx-Nb-zBU"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="cW9-0T-wwr" secondAttribute="bottom" id="wp2-Y3-auV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qRY-Xq-86J" secondAttribute="trailing" id="xpe-jq-qXf"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="FAc-y4-dbK"/>
                                 <exclude reference="flf-ZR-9js"/>
+                                <exclude reference="HSQ-ls-ILG"/>
+                                <exclude reference="LZt-of-qqU"/>
                                 <exclude reference="arZ-cE-SSQ"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="人気" id="puE-H7-bc0"/>
                     <connections>
+                        <outlet property="roundSearchButton" destination="qRY-Xq-86J" id="0Cj-Cm-WmV"/>
                         <outlet property="tableView" destination="cW9-0T-wwr" id="8wY-ag-JTq"/>
                         <segue destination="fTk-Y8-c3p" kind="show" identifier="showDetail" id="sJn-w5-INC"/>
                     </connections>

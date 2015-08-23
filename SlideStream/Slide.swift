@@ -14,7 +14,7 @@ enum SourceType: String {
     case NotFound = "not found"
 }
 
-class Slide {
+class Slide: CustomStringConvertible {
    
     let title: String
     let link: String
@@ -30,6 +30,12 @@ class Slide {
         self.imageBaseUrl = imageUrl
         self.hatebu = hatebu
         self.totalCount = totalCount
+    }
+    
+    var description: String {
+        get {
+            return "\(title) / \(link)"
+        }
     }
     
     func slideThumbUrl() -> String {
