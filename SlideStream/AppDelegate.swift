@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-        window?.tintColor = UIColor.color(0x4EC0E3)
+        window?.tintColor = UIColor.color(0x4aa3df)
         return true
     }
 

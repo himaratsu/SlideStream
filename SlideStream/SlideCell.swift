@@ -35,7 +35,7 @@ class SlideCell: UITableViewCell {
         titleLabel.text = slide.title
         sourceLabel.text = slide.source.rawValue
         hatebuLabel.text = "\(slide.hatebu) users"
-        
+        dateLabel.text = slide.postDate?.toSimpleString() ?? "----/--/--"
         if index % 2 == 0 {
             backgroundColor = UIColor.color(0xFCFCFC)
         }

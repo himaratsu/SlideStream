@@ -26,7 +26,8 @@ class SingleSlideParser {
                 else {
                     totalCount = 0
                 }
-                let postDate = dict["postdate"] as? String ?? ""
+                let postDateStr = dict["postdate"] as? String ?? ""
+                let postDate = postDateStr.toDate()
                 
                 let slide = Slide(title: title,
                     link: link,

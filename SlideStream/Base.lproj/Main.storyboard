@@ -140,7 +140,7 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qRY-Xq-86J" customClass="RoundSearchButton" customModule="SlideStream" customModuleProvider="target">
                                 <rect key="frame" x="239" y="483" width="65" height="65"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="Sve-fF-BJL"/>
                                     <constraint firstAttribute="height" constant="65" id="bdk-Rs-E2P"/>
@@ -180,7 +180,7 @@
                                 <segment title="人気"/>
                                 <segment title="すべて"/>
                             </segments>
-                            <color key="tintColor" red="0.30588235289999999" green="0.75294117650000003" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.29019607843137257" green="0.63921568627450975" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="segmentedControlChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="0e3-6h-LkD"/>
                             </connections>
@@ -188,6 +188,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="roundSearchButton" destination="qRY-Xq-86J" id="0Cj-Cm-WmV"/>
+                        <outlet property="segmentedControl" destination="tfN-96-fWG" id="CXq-52-iwM"/>
                         <outlet property="tableView" destination="cW9-0T-wwr" id="8wY-ag-JTq"/>
                         <segue destination="fTk-Y8-c3p" kind="show" identifier="showDetail" id="sJn-w5-INC"/>
                     </connections>
@@ -300,7 +301,7 @@
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l2D-5u-Pih" customClass="PageProgressView" customModule="SlideStream" customModuleProvider="target">
-                                <rect key="frame" x="88.5" y="455" width="143" height="49"/>
+                                <rect key="frame" x="161" y="455" width="143" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="6ws-HG-WBt"/>
@@ -318,11 +319,13 @@
                             <constraint firstItem="3Ly-JH-LQN" firstAttribute="leading" secondItem="WCw-yJ-K0Y" secondAttribute="leading" id="Z8D-jG-kR6"/>
                             <constraint firstItem="D24-ri-tAA" firstAttribute="top" secondItem="l2D-5u-Pih" secondAttribute="bottom" constant="20" id="efK-lG-gQN"/>
                             <constraint firstItem="l2D-5u-Pih" firstAttribute="centerX" secondItem="WCw-yJ-K0Y" secondAttribute="centerX" id="iGe-kk-Q5R"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="l2D-5u-Pih" secondAttribute="trailing" id="nFk-MC-krz"/>
                             <constraint firstAttribute="trailing" secondItem="D24-ri-tAA" secondAttribute="trailing" id="oGm-Oq-Bub"/>
                             <constraint firstAttribute="trailing" secondItem="3Ly-JH-LQN" secondAttribute="trailing" id="yb7-dv-MD3"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="iGe-kk-Q5R"/>
                                 <exclude reference="B0M-Rd-sJy"/>
                             </mask>
                         </variation>

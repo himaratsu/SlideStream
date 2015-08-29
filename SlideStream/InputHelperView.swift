@@ -1,22 +1,22 @@
 //
-//  RoundSearchButton.swift
+//  InputHelperView.swift
 //  SlideStream
 //
-//  Created by himara2 on 2015/08/23.
+//  Created by himara2 on 2015/08/30.
 //  Copyright © 2015年 Ryosuke Hiramatsu. All rights reserved.
 //
 
 import UIKit
 
-protocol RoundSearchButtonDelegate {
-    func searchButtonDidTouched()
+protocol InputHelperViewDelegate: NSObjectProtocol {
+    func helperViewDidTouched(text: String)
 }
 
-@IBDesignable
-class RoundSearchButton: UIView {
-    @IBOutlet weak var backgroundView: UIView!
-    @IBOutlet weak var searchButton: UIButton!
-    var delegate: RoundSearchButtonDelegate?
+class InputHelperView: UIView {
+
+    @IBOutlet weak private var previewLabel: UILabel!
+    private var clipedText = ""
+    weak var delegate: InputHelperViewDelegate?
     
     // コードから初期化はここから
     override init(frame: CGRect) {
@@ -32,9 +32,8 @@ class RoundSearchButton: UIView {
     
     // xibからカスタムViewを読み込んで準備する
     private func comminInit() {
-        // MyCustomView.xib からカスタムViewをロードする
         let bundle = NSBundle(forClass: self.dynamicType)
-        let nib = UINib(nibName: "RoundSearchButton", bundle: bundle)
+        let nib = UINib(nibName: "InputHelperView", bundle: bundle)
         let view = nib.instantiateWithOwner(self, options: nil).first as! UIView
         addSubview(view)
         
@@ -50,19 +49,27 @@ class RoundSearchButton: UIView {
             metrics:nil,
             views: bindings))
         
-        view.backgroundColor = UIColor.clearColor()
-        
+        setUpGesture()
+        configure()
     }
     
-    @IBAction func searchButtonTouched(sender: AnyObject) {
-        delegate?.searchButtonDidTouched()
+    
+    private func setUpGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: "helperViewTouched")
+        addGestureRecognizer(tapGesture)
     }
     
-    override func awakeFromNib() {
-        backgroundView.layer.cornerRadius = self.frame.size.width / 2
-        backgroundView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).CGColor
-        backgroundView.layer.shadowOffset = CGSizeMake(0, 2)
-        backgroundView.layer.shadowRadius = 0.5
-        backgroundView.layer.shadowOpacity = 0.7
+    private func configure() {
+        let pasteboard = UIPasteboard.generalPasteboard()
+        if let pasteString = pasteboard.valueForPasteboardType("public.text") as? String {
+            clipedText = pasteString
+            previewLabel.text = pasteString
+        } else {
+            previewLabel.text = "-"
+        }
+    }
+    
+    func helperViewTouched() {
+        delegate?.helperViewDidTouched(clipedText)
     }
 }

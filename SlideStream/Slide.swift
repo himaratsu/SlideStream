@@ -22,9 +22,9 @@ class Slide: CustomStringConvertible {
     let imageBaseUrl: String
     let hatebu: Int
     let totalCount: Int
-    let postDate: String
+    let postDate: NSDate?
     
-    init(title: String, link: String, source: SourceType, imageUrl: String, hatebu: Int, totalCount: Int, postDate: String) {
+    init(title: String, link: String, source: SourceType, imageUrl: String, hatebu: Int, totalCount: Int, postDate: NSDate?) {
         self.title = title
         self.link = link
         self.source = source

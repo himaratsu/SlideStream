@@ -19,7 +19,7 @@ class SlideContentCell: UITableViewCell {
         slideImageView.layer.masksToBounds = true
         slideImageView.layer.borderColor = UIColor.color(0xBBBBBB).CGColor
         slideImageView.layer.borderWidth = 1.0
-        slideImageView.backgroundColor = UIColor.blackColor()
+        slideImageView.backgroundColor = UIColor.clearColor()
     }
     
     func configure(slideUrl: String) {

@@ -12,7 +12,7 @@ protocol OverlayTextFieldDelegate {
     func didSearchWithUrl(url: String)
 }
 
-class OverlayTextField: UIView, UITextFieldDelegate {
+class OverlayTextField: UIView, UITextFieldDelegate, InputHelperViewDelegate {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var noticeLabel: UILabel!
 
@@ -50,6 +50,18 @@ class OverlayTextField: UIView, UITextFieldDelegate {
             metrics:nil,
             views: bindings))
         
+        setUpInputHelper()
+    }
+    
+    override func awakeFromNib() {
+
+    }
+    
+    private func setUpInputHelper() {
+        let helperView = InputHelperView()
+        helperView.frame = CGRectMake(0, 0, frame.size.width, 60)
+        helperView.delegate = self
+        textField.inputAccessoryView = helperView
     }
 
     func show() {
@@ -92,8 +104,15 @@ class OverlayTextField: UIView, UITextFieldDelegate {
         return true
     }
     
-    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         hideWithAnimation()
     }
+    
+    
+    // MARK: - InputHelperViewDelegate
+    
+    func helperViewDidTouched(text: String) {
+        textField.text = text
+    }
+    
 }

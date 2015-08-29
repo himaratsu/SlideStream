@@ -63,9 +63,23 @@ extension NSObject {
 
 
 extension String {
-    // TODO: DateFormat
+    func toDate() -> NSDate? {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        return dateFormatter.dateFromString(self)
+    }
 }
 
+
+extension NSDate {
+    func toSimpleString() -> String? {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        return dateFormatter.stringFromDate(self)
+    }
+}
 
 extension UIImageView {
     func loadImageURLWithEasingAnimation(imageUrl: String) {
