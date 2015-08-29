@@ -14,10 +14,15 @@ private let slidesApiUrl = "https://slide-stream.herokuapp.com/slides"
 
 class SlideService {
    
+    var isLoaded = [Mode:Bool]()
+    var slides = [Mode:[Slide]]()
+    
     func requestSlides(mode: Mode, completionHandler:([Slide]?, NSError?) -> Void) {
         
-        var params = ["mode": mode.rawValue]
-        if mode == Mode.Latest {
+        isLoaded[mode] = false
+        
+        var params = ["mode": mode.mode]
+        if mode == .Latest {
             params["sort"] = "latest"
         }
         
@@ -25,19 +30,21 @@ class SlideService {
             apiUrl,
             parameters: params,
             encoding: ParameterEncoding.URL)
-            .response { (req, res, data, error) -> Void in
+            .response { [weak self] (req, res, data, error) -> Void in
                 
                  print(req?.URL)
                 
                 if let error = error {
                     print(error)
-                }
-                else {
+                } else {
                     if let json = try! NSJSONSerialization.JSONObjectWithData(data!,
                     options: NSJSONReadingOptions.AllowFragments) as? Array<[String:AnyObject]> {
                         
                         let parser = SlideParser()
                         let slides = parser.parse(json)
+                        
+                        self?.slides[mode] = slides
+                        self?.isLoaded[mode] = true
                         
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             completionHandler(slides, nil)
@@ -50,8 +57,7 @@ class SlideService {
     
     func requestSlide(url: String, completionHandler:(Slide?, NSError?) -> Void) {
         
-        var params = ["sitename": "slideshare", "url": "http://www.slideshare.net/t26v0748/apple-watch-48652348"]
-        
+        let params = ["sitename": "slideshare", "url": "http://www.slideshare.net/t26v0748/apple-watch-48652348"]
         
         Alamofire.request(.GET,
             slidesApiUrl,

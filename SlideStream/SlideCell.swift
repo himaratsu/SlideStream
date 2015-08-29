@@ -14,6 +14,7 @@ class SlideCell: UITableViewCell {
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var sourceLabel: UILabel!
     @IBOutlet weak private var hatebuLabel: UILabel!
+    @IBOutlet weak private var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -45,6 +45,11 @@ extension NSObject {
 }
 
 
+extension String {
+    // TODO: DateFormat
+}
+
+
 extension UIImageView {
     func loadImageURLWithEasingAnimation(imageUrl: String) {
         SDWebImageManager.sharedManager().imageCache.queryDiskCacheForKey(imageUrl)

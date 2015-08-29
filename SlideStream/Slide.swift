@@ -22,14 +22,16 @@ class Slide: CustomStringConvertible {
     let imageBaseUrl: String
     let hatebu: Int
     let totalCount: Int
+    let postDate: String
     
-    init(title: String, link: String, source: SourceType, imageUrl: String, hatebu: Int, totalCount: Int) {
+    init(title: String, link: String, source: SourceType, imageUrl: String, hatebu: Int, totalCount: Int, postDate: String) {
         self.title = title
         self.link = link
         self.source = source
         self.imageBaseUrl = imageUrl
         self.hatebu = hatebu
         self.totalCount = totalCount
+        self.postDate = postDate
     }
     
     var description: String {

@@ -14,8 +14,8 @@ OverlayTextFieldDelegate {
     
     @IBOutlet weak private var tableView: UITableView!
     private let refreshControl = UIRefreshControl()
-    private var slides = [Slide]()
-    private var currentMode = Mode.Recently
+    private let service = SlideService()
+    private var currentMode: Mode = .Latest
     @IBOutlet weak var roundSearchButton: RoundSearchButton!
     
     override func viewDidLoad() {
@@ -33,15 +33,13 @@ OverlayTextFieldDelegate {
         tableView.addSubview(refreshControl)
     }
     
-    private func reload(mode mode: Mode = .All) {
+    private func reload(mode mode: Mode) {
         
-        let service = SlideService()
         service.requestSlides(mode) { (slides, error) -> Void in
             if let _ = error {
                 print("#################### error #####################", appendNewline: false)
             }
             else {
-                self.slides = slides!
                 self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
                 self.tableView.reloadData()
             }
@@ -69,23 +67,65 @@ OverlayTextFieldDelegate {
 
     // MARK: - UITableViewDataSource
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return slides.count
+        switch section {
+        case 0:
+            if let count = service.slides[currentMode]?.count {
+                return count
+            } else {
+                return 0
+            }
+            
+        case 1:
+            return 1
+            
+        default:
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SlideCell") as! SlideCell
-        cell.configureSlide(slides[indexPath.row], index:indexPath.row)
-        return cell
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCellWithIdentifier("SlideCell") as! SlideCell
+            let slides = service.slides[currentMode]!
+            cell.configureSlide(slides[indexPath.row], index:indexPath.row)
+            return cell
+            
+        case 1:
+            let cell = tableView.dequeueReusableCellWithIdentifier("LoadingCell") as! LoadingCell
+            cell.configure()
+            return cell
+            
+        default:
+            fatalError("UITableView not initialized")
+        }
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0:
+            return 114
+            
+        case 1:
+            return 74
+            
+        default:
+            return 0
+        }
+
+    }
     
     // MARK: - UITableViewDelegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        let slide = slides[indexPath.row]
+        let slide = service.slides[currentMode]![indexPath.row]
         self.performSegueWithIdentifier("showDetail", sender: slide)
     }
     
@@ -106,11 +146,17 @@ OverlayTextFieldDelegate {
     @IBAction func segmentedControlChanged(sender: UISegmentedControl) {
         
         let selectIndex = sender.selectedSegmentIndex
-        let mode = Mode.modeWithIndex(selectIndex)
+        let mode = Mode(rawValue: selectIndex)
         
-        if currentMode != mode {
-            reload(mode: mode)
-            currentMode = mode
+        if let mode = mode where currentMode != mode {
+            if let isLoad = service.isLoaded[mode] where isLoad {
+                currentMode = mode
+                tableView.reloadData()
+            } else {
+                currentMode = mode
+                tableView.reloadData()
+                reload(mode: mode)
+            }
         }
         
     }
@@ -140,24 +186,17 @@ OverlayTextFieldDelegate {
 }
 
 
-enum Mode: String {
-    case Recently = "recently"
-    case Latest = "this_week"
-    case Popular = "this_month"
-    case All = "all"
+enum Mode: Int {
+    case Latest = 0
+    case Popular
+    case All
+
     
-    static func modeWithIndex(index: Int) -> Mode {
-        switch index {
-        case 0:
-            return Mode.Recently
-        case 1:
-            return Mode.Latest
-        case 2:
-            return Mode.Popular
-        case 3:
-            return Mode.All
-        default:
-            return Mode.All
+    var mode: String {
+        switch self {
+        case .Latest:   return "all"
+        case .Popular:  return "this_month"
+        case .All:      return "all"
         }
     }
 }

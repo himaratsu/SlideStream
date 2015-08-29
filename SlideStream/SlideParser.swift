@@ -29,14 +29,15 @@ class SlideParser {
                     else {
                         totalCount = 0
                     }
-                    _ = dict["postdate"] as? String ?? ""
+                    let postDate = dict["postdate"] as? String ?? ""
                     
                     let slide = Slide(title: title,
                         link: link,
                         source: source,
                         imageUrl: imageUrl,
                         hatebu: hatebuCount,
-                        totalCount: totalCount)
+                        totalCount: totalCount,
+                        postDate: postDate)
                     
                     slides.append(slide)
             }

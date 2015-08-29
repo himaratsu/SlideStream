@@ -153,6 +153,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         let hatenaCommentURL = "http://b.hatena.ne.jp/entry/\(slide!.link)"
         if #available(iOS 9.0, *) {
             let safariVC = SFSafariViewController(URL: NSURL(string: hatenaCommentURL)!)
+            safariVC.title = "コメント: \(title)"
             self.navigationController?.pushViewController(safariVC, animated: true)
         } else {
             UIApplication.sharedApplication().openURL(NSURL(string: hatenaCommentURL)!)
