@@ -67,6 +67,24 @@ class OverlayTextField: UIView, UITextFieldDelegate {
 
     // MARK: - UITextFieldDelegate
     
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        print(textField.text)
+        
+        let inputedText = (textField.text! as NSString).mutableCopy()
+        inputedText.replaceCharactersInRange(range, withString: string)
+        
+        if let inputedText = inputedText as? String,
+            let siteName = Util.urlToSiteName(inputedText) {
+                if siteName == "slideshare" {
+                    noticeLabel.text = "[slideshare] を検索"
+                } else {
+                    noticeLabel.text = "[Speaker Deck] を検索"
+                }
+        }
+        
+        return true
+    }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         hideWithAnimation()

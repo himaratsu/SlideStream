@@ -9,13 +9,17 @@
 import UIKit
 import Alamofire
 
-private let apiUrl = "https://slide-stream.herokuapp.com/entries.json"
-private let slidesApiUrl = "https://slide-stream.herokuapp.com/slides"
+private let host = "https://slide-stream.herokuapp.com" // prod
+
+private let apiUrl = "\(host)/entries.json"
+private let slidesApiUrl = "\(host)/slides"
 
 class SlideService {
    
     var isLoaded = [Mode:Bool]()
     var slides = [Mode:[Slide]]()
+    
+    var slide: Slide?   // URLでリクエストする時用
     
     func requestSlides(mode: Mode, completionHandler:([Slide]?, NSError?) -> Void) {
         
@@ -57,13 +61,20 @@ class SlideService {
     
     func requestSlide(url: String, completionHandler:(Slide?, NSError?) -> Void) {
         
-        let params = ["sitename": "slideshare", "url": "http://www.slideshare.net/t26v0748/apple-watch-48652348"]
+        guard let siteName = Util.urlToSiteName(url) else {
+            completionHandler(nil, NSError(domain: "domain not correct", code: 9000, userInfo: nil))
+            return
+        }
+        
+        let params = ["sitename": siteName, "url": url]
         
         Alamofire.request(.GET,
             slidesApiUrl,
             parameters: params,
             encoding: ParameterEncoding.URL)
-        .response { (req, res, data, error) -> Void in
+        .response { [weak self] (req, res, data, error) -> Void in
+            
+            print("##### \(req?.URL)")
             
             if let error = error {
                 print(error)
@@ -74,6 +85,7 @@ class SlideService {
                         
                         let parser = SingleSlideParser()
                         if let slide = parser.parse(json) {
+                            self?.slide = slide
                             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                                 completionHandler(slide, nil)
                             })

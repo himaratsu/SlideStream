@@ -10,6 +10,23 @@ import Foundation
 import UIKit
 import SDWebImage
 
+class Util {
+    class func urlToSiteName(url: String) -> String? {
+        if let URL = NSURL(string: url),
+            let host = URL.host {
+                if host == "www.slideshare.net" {
+                    return "slideshare"
+                } else if host == "speakerdeck.com" {
+                    return "Speaker Deck"
+                } else {
+                    return nil
+                }
+        } else {
+            return nil
+        }
+    }
+}
+
 extension UIColor {
     class func color(hex: Int, alpha: Double = 1.0) -> UIColor {
         let red = Double((hex & 0xFF0000) >> 16) / 255.0

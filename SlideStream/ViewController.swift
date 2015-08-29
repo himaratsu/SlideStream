@@ -172,12 +172,11 @@ OverlayTextFieldDelegate {
     // MARK: - OverlayTextFieldDelegate
     
     func didSearchWithUrl(url: String) {
-        let service = SlideService()
         service.requestSlide(url) { (slide, error) -> Void in
             if let _ = error {
                 print("###### error ######")
             } else {
-                print(slide)
+                self.performSegueWithIdentifier("showDetail", sender: slide)
             }
         }
     }
