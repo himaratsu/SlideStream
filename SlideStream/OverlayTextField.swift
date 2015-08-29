@@ -50,14 +50,9 @@ class OverlayTextField: UIView, UITextFieldDelegate, InputHelperViewDelegate {
             metrics:nil,
             views: bindings))
         
-        setUpInputHelper()
     }
     
-    override func awakeFromNib() {
-
-    }
-    
-    private func setUpInputHelper() {
+    func configure() {
         let helperView = InputHelperView()
         helperView.frame = CGRectMake(0, 0, frame.size.width, 60)
         helperView.delegate = self
@@ -88,9 +83,9 @@ class OverlayTextField: UIView, UITextFieldDelegate, InputHelperViewDelegate {
         if let inputedText = inputedText as? String,
             let siteName = Util.urlToSiteName(inputedText) {
                 if siteName == "slideshare" {
-                    noticeLabel.text = "[slideshare] を検索"
+                    noticeLabel.text = "[slideshare] から検索"
                 } else {
-                    noticeLabel.text = "[Speaker Deck] を検索"
+                    noticeLabel.text = "[Speaker Deck] から検索"
                 }
         }
         

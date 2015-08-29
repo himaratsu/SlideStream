@@ -49,10 +49,17 @@ class InputHelperView: UIView {
             metrics:nil,
             views: bindings))
         
+        startObserving()
         setUpGesture()
         configure()
     }
     
+    private func startObserving() {
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "applicationDidBecomeActive",
+            name: UIApplicationDidBecomeActiveNotification,
+            object: nil)
+    }
     
     private func setUpGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: "helperViewTouched")
@@ -69,7 +76,17 @@ class InputHelperView: UIView {
         }
     }
     
+    func applicationDidBecomeActive() {
+        configure()
+    }
+    
     func helperViewTouched() {
         delegate?.helperViewDidTouched(clipedText)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+            name: UIApplicationDidBecomeActiveNotification,
+            object: nil)
     }
 }

@@ -69,6 +69,7 @@ OverlayTextFieldDelegate {
             textField.delegate = self
             window.addSubview(textField)
             
+            textField.configure()
             textField.textField.becomeFirstResponder()
         }
     }
