@@ -128,13 +128,14 @@ OverlayTextFieldDelegate {
     func didSearchWithUrl(url: String) {
         let service = SlideService()
         service.requestSlide(url) { (slide, error) -> Void in
-            if let error = error {
+            if let _ = error {
                 print("###### error ######")
             } else {
                 print(slide)
             }
         }
     }
+
 
 }
 

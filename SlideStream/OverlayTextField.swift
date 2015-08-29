@@ -57,7 +57,7 @@ class OverlayTextField: UIView, UITextFieldDelegate {
     }
     
     func hideWithAnimation() {
-        UIView.animateWithDuration(0.15, animations: { () -> Void in
+        UIView.animateWithDuration(0.12, animations: { () -> Void in
             self.transform = CGAffineTransformMakeScale(1.3, 1.3)
             self.alpha = 0
             }) { (finished) -> Void in
@@ -74,4 +74,8 @@ class OverlayTextField: UIView, UITextFieldDelegate {
         return true
     }
     
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        hideWithAnimation()
+    }
 }
