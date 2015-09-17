@@ -52,7 +52,7 @@ OverlayTextFieldDelegate {
         
         service.requestSlides(mode) { (slides, error) -> Void in
             if let _ = error {
-                print("#################### error #####################", appendNewline: false)
+                print("#################### error #####################")
             }
             else {
                 self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)

@@ -3,8 +3,7 @@
 use_frameworks!
 
 target 'SlideStream' do
-#  pod 'Alamofire'
-  pod 'Alamofire', '2.0.0-beta.1'
+  pod 'Alamofire'
   pod 'SDWebImage'
   pod 'SVProgressHUD'
 end

@@ -111,7 +111,7 @@ class SlideService {
                 
                 if let error = error {
                     print(error)
-                    completionHandler(nil, error)
+                    completionHandler(nil, NSError(domain: "error", code: 999, userInfo: nil))
                 }
                 else {
                     completionHandler(true, nil)
