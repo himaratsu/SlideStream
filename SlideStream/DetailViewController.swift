@@ -144,9 +144,11 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     @IBAction private func actionButtonTouched(sender: AnyObject) {
-        let activityView = UIActivityViewController(activityItems: [slide!.link],
-            applicationActivities: [])
-        self.presentViewController(activityView, animated: true, completion: nil)
+        if let URL = NSURL(string: slide!.link) {
+            let activityView = UIActivityViewController(activityItems: [URL],
+                applicationActivities: [])
+            self.presentViewController(activityView, animated: true, completion: nil)
+        }
     }
     
     @IBAction func hatenaCommentButtonTouched(sender: AnyObject) {

@@ -159,6 +159,12 @@ OverlayTextFieldDelegate {
     
     // MARK: - Action
     
+    @IBAction func infoButtonTouched(sender: AnyObject) {
+        service.refreshSlideInfo { (isSuccess, error) -> Void in
+            print("refreshed")
+        }
+    }
+    
     @IBAction func segmentedControlChanged(sender: UISegmentedControl) {
         let selectIndex = sender.selectedSegmentIndex
         moveToIndex(selectIndex)

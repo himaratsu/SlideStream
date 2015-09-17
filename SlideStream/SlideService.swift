@@ -13,6 +13,7 @@ private let host = "https://slide-stream.herokuapp.com" // prod
 
 private let apiUrl = "\(host)/entries.json"
 private let slidesApiUrl = "\(host)/slides"
+private let refreshApiUrl = "\(host)/refresh"
 
 class SlideService {
    
@@ -24,6 +25,7 @@ class SlideService {
     func requestSlides(mode: Mode, completionHandler:([Slide]?, NSError?) -> Void) {
         
         isLoaded[mode] = false
+        slides[mode] = [Slide]()
         
         var params = ["mode": mode.mode]
         if mode == .Latest {
@@ -94,6 +96,26 @@ class SlideService {
                 }
             }
 
+        }
+    }
+    
+    func refreshSlideInfo(completionHandler:(Bool?, NSError?) -> Void) {
+        
+        Alamofire.request(.GET,
+            refreshApiUrl,
+            parameters: nil,
+            encoding: ParameterEncoding.URL)
+            .response { (req, res, data, error) -> Void in
+                
+                print("##### \(req?.URL)")
+                
+                if let error = error {
+                    print(error)
+                    completionHandler(nil, error)
+                }
+                else {
+                    completionHandler(true, nil)
+                }
         }
     }
 
