@@ -22,6 +22,12 @@ class SlideContentCell: UITableViewCell {
         slideImageView.backgroundColor = UIColor.clearColor()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        slideImageView.image = nil
+        slideImageView.sd_cancelCurrentImageLoad()
+    }
+    
     func configure(slideUrl: String) {
         slideImageView.loadImageURLWithEasingAnimation(slideUrl)
     }

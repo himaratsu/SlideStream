@@ -53,11 +53,17 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-SlideStream/Alamofire.framework'
+  install_framework 'Pods-SlideStream/DACircularProgress.framework'
+  install_framework 'Pods-SlideStream/MBProgressHUD.framework'
+  install_framework 'Pods-SlideStream/MWPhotoBrowser.framework'
   install_framework 'Pods-SlideStream/SDWebImage.framework'
   install_framework 'Pods-SlideStream/SVProgressHUD.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-SlideStream/Alamofire.framework'
+  install_framework 'Pods-SlideStream/DACircularProgress.framework'
+  install_framework 'Pods-SlideStream/MBProgressHUD.framework'
+  install_framework 'Pods-SlideStream/MWPhotoBrowser.framework'
   install_framework 'Pods-SlideStream/SDWebImage.framework'
   install_framework 'Pods-SlideStream/SVProgressHUD.framework'
 fi
