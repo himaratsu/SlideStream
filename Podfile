@@ -6,6 +6,7 @@ target 'SlideStream' do
   pod 'Alamofire'
   pod 'SDWebImage'
   pod 'SVProgressHUD'
+  pod 'MWPhotoBrowser'
 end
 
 
