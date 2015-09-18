@@ -114,11 +114,11 @@ MWPhotoBrowserDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         switch indexPath.section {
         case TableViewSectionType.Title.rawValue:
-            let cell = tableView.dequeueReusableCellWithIdentifier("DetailTitleCell") as! DetailTitleCell
+            let cell = tableView.dequeueCell(DetailTitleCell.self, indexPath: indexPath)
             cell.configure(slide!.title)
             return cell
         case TableViewSectionType.SlideContent.rawValue:
-            let cell = tableView.dequeueReusableCellWithIdentifier("SlideContentCell") as! SlideContentCell
+            let cell = tableView.dequeueCell(SlideContentCell.self, indexPath: indexPath)
             if let slideUrl = slide?.slideUrl(indexPath.row) {
                 cell.configure(slideUrl)
             }

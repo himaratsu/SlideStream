@@ -110,3 +110,15 @@ extension UIImageView {
         })
     }
 }
+
+extension UITableView {
+    func registerCell<T: UITableViewCell>(type: T.Type) {
+        let className = type.className
+        let nib = UINib(nibName: className, bundle: nil)
+        registerNib(nib, forCellReuseIdentifier: className)
+    }
+    
+    func dequeueCell<T: UITableViewCell>(type: T.Type, indexPath: NSIndexPath) -> T {
+        return self.dequeueReusableCellWithIdentifier(type.className, forIndexPath: indexPath) as! T
+    }
+}

@@ -26,7 +26,9 @@ class SlideCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
+        super.prepareForReuse()
         thumbImageView.image = nil
+        thumbImageView.sd_cancelCurrentImageLoad()
     }
     
     func configureSlide(slide: Slide, index:Int) {

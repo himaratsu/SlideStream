@@ -107,13 +107,13 @@ OverlayTextFieldDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCellWithIdentifier("SlideCell") as! SlideCell
+            let cell = tableView.dequeueCell(SlideCell.self, indexPath: indexPath)
             let slides = service.slides[currentMode]!
             cell.configureSlide(slides[indexPath.row], index:indexPath.row)
             return cell
             
         case 1:
-            let cell = tableView.dequeueReusableCellWithIdentifier("LoadingCell") as! LoadingCell
+            let cell = tableView.dequeueCell(LoadingCell.self, indexPath: indexPath)
             cell.configure()
             return cell
             
