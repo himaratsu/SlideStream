@@ -14,6 +14,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak private var hatenaCommentButton: UIBarButtonItem!
     @IBOutlet weak private var pageProgressView: PageProgressView!
     @IBOutlet weak var serviceIconItem: UIBarButtonItem!
+    private var cellHeight: CGFloat = 270
     
     enum TableViewSectionType: Int {
         case Title = 0
@@ -23,12 +24,12 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             return 2
         }
         
-        static func heightForCell(indexPath: NSIndexPath) -> CGFloat {
+        static func heightForCell(indexPath: NSIndexPath, slideCellHeight: CGFloat) -> CGFloat {
             switch indexPath.section {
             case TableViewSectionType.Title.rawValue:
                 return 44
             case TableViewSectionType.SlideContent.rawValue:
-                return 270
+                return slideCellHeight
             default:
                 return 0
             }
@@ -45,6 +46,9 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
 
         if let slide = slide {
             self.title = slide.title
+            
+            calculateImageHeight()
+            
             tableView.reloadData()
             
             pageProgressView.setCurrentPage(1, totalPage: slide.totalCount)
@@ -52,6 +56,22 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             setUpBookmarkCount()
             
             setUpServiceIcon()
+        }
+    }
+    
+    private func calculateImageHeight() {
+        if let imageUrl = slide?.slideThumbUrl(),
+            let imageURL = NSURL(string: imageUrl) {
+                let imageView = UIImageView()
+                imageView.sd_setImageWithURL(imageURL, completed: { (image, error, cacheType, URL) -> Void in
+                    if let image = image {
+                        let width = image.size.width
+                        let height = image.size.height
+                        
+                        self.cellHeight = (height / width) * (UIScreen.mainScreen().bounds.size.width - 16) + 16
+                        self.tableView.reloadData()
+                    }
+                })
         }
     }
     
@@ -105,7 +125,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return TableViewSectionType.heightForCell(indexPath)
+        return TableViewSectionType.heightForCell(indexPath, slideCellHeight: cellHeight)
     }
 
     
