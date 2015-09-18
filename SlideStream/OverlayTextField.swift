@@ -108,6 +108,7 @@ class OverlayTextField: UIView, UITextFieldDelegate, InputHelperViewDelegate {
     
     func helperViewDidTouched(text: String) {
         textField.text = text
+        delegate?.didSearchWithUrl(textField.text!)
     }
     
 }

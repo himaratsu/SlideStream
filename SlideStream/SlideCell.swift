@@ -19,10 +19,10 @@ class SlideCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        thumbImageView.layer.cornerRadius = 3.0
+        thumbImageView.layer.cornerRadius = 1.0
         thumbImageView.layer.masksToBounds = true
         thumbImageView.layer.borderColor = UIColor.color(0xCCCCCC).CGColor
-        thumbImageView.layer.borderWidth = 1.0
+        thumbImageView.layer.borderWidth = 0.5
     }
     
     override func prepareForReuse() {

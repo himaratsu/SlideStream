@@ -15,10 +15,10 @@ class SlideContentCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        slideImageView.layer.cornerRadius = 4.0
+        slideImageView.layer.cornerRadius = 1.0
         slideImageView.layer.masksToBounds = true
-        slideImageView.layer.borderColor = UIColor.color(0xBBBBBB).CGColor
-        slideImageView.layer.borderWidth = 1.0
+        slideImageView.layer.borderColor = UIColor.color(0xCCCCCC).CGColor
+        slideImageView.layer.borderWidth = 0.5
         slideImageView.backgroundColor = UIColor.clearColor()
     }
     
