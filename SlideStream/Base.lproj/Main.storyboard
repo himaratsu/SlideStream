@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="114" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cW9-0T-wwr">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="517"/>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -138,6 +138,14 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="bpg-cQ-ePb"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J4L-D6-Xbp" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="4eP-Lo-YmZ"/>
+                                    <constraint firstAttribute="height" constant="50" id="XXh-dz-VoA"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qRY-Xq-86J" customClass="RoundSearchButton" customModule="SlideStream" customModuleProvider="target">
                                 <rect key="frame" x="239" y="483" width="65" height="65"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -149,21 +157,29 @@
                         </subviews>
                         <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="J4L-D6-Xbp" secondAttribute="trailing" id="1Ct-FB-3Tm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qRY-Xq-86J" secondAttribute="trailing" id="HSQ-ls-ILG"/>
                             <constraint firstItem="qRY-Xq-86J" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="LZt-of-qqU"/>
+                            <constraint firstItem="J4L-D6-Xbp" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="UYq-CY-tk1"/>
                             <constraint firstAttribute="trailing" secondItem="cW9-0T-wwr" secondAttribute="trailing" id="Xhj-vL-dgs"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="cW9-0T-wwr" secondAttribute="bottom" id="arZ-cE-SSQ"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="qRY-Xq-86J" secondAttribute="bottom" constant="20" id="c93-f3-ZFh"/>
                             <constraint firstItem="cW9-0T-wwr" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="iYs-DV-LWa"/>
                             <constraint firstItem="cW9-0T-wwr" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-64" id="kiH-HF-YaD"/>
+                            <constraint firstAttribute="bottom" secondItem="J4L-D6-Xbp" secondAttribute="bottom" id="pGf-iY-iOV"/>
+                            <constraint firstItem="J4L-D6-Xbp" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="pXx-Af-gdp"/>
+                            <constraint firstItem="J4L-D6-Xbp" firstAttribute="top" secondItem="cW9-0T-wwr" secondAttribute="bottom" constant="1" id="qmy-MK-N6E"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="cW9-0T-wwr" secondAttribute="bottom" id="wp2-Y3-auV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qRY-Xq-86J" secondAttribute="trailing" id="xpe-jq-qXf"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="1Ct-FB-3Tm"/>
+                                <exclude reference="pXx-Af-gdp"/>
                                 <exclude reference="HSQ-ls-ILG"/>
                                 <exclude reference="LZt-of-qqU"/>
                                 <exclude reference="arZ-cE-SSQ"/>
+                                <exclude reference="wp2-Y3-auV"/>
                             </mask>
                         </variation>
                     </view>
@@ -197,6 +213,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bannerView" destination="J4L-D6-Xbp" id="2dO-AY-oV5"/>
                         <outlet property="roundSearchButton" destination="qRY-Xq-86J" id="0Cj-Cm-WmV"/>
                         <outlet property="segmentedControl" destination="tfN-96-fWG" id="CXq-52-iwM"/>
                         <outlet property="tableView" destination="cW9-0T-wwr" id="8wY-ag-JTq"/>

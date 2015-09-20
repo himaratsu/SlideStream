@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import GoogleMobileAds
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, RoundSearchButtonDelegate,
 OverlayTextFieldDelegate {
@@ -20,10 +21,14 @@ OverlayTextFieldDelegate {
     @IBOutlet weak private var roundSearchButton: RoundSearchButton!
     @IBOutlet weak private var segmentedControl: UISegmentedControl!
     
+    @IBOutlet weak private var bannerView: GADBannerView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpRefreshControl()
+        
+        setUpBannerView()
         
         setUpGesture()
         
@@ -36,6 +41,12 @@ OverlayTextFieldDelegate {
         refreshControl.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
         refreshControl.attributedTitle = NSAttributedString(string: "引っ張って更新")
         tableView.addSubview(refreshControl)
+    }
+    
+    private func setUpBannerView() {
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.loadRequest(GADRequest())
     }
     
     private func setUpGesture() {

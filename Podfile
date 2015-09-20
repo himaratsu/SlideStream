@@ -7,6 +7,8 @@ target 'SlideStream' do
   pod 'SDWebImage'
   pod 'SVProgressHUD'
   pod 'MWPhotoBrowser'
+  pod 'Google-Mobile-Ads-SDK', '~> 7.0'
+  pod 'Parse', '~> 1.6.2'
 end
 
 
