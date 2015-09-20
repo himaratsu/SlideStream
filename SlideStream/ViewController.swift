@@ -68,8 +68,7 @@ OverlayTextFieldDelegate {
     }
     
     private func reload(mode mode: Mode) {
-        
-        service.requestSlides(mode) { (slides, error) -> Void in
+        service.requestSlidesHead(mode) { (slides, error) -> Void in
             if let _ = error {
                 print("#################### error #####################")
             }
@@ -79,6 +78,17 @@ OverlayTextFieldDelegate {
             }
 
             self.refreshControl.endRefreshing()
+        }
+    }
+    
+    private func loadMore(mode mode:Mode) {
+        service.requestSlidesNext(mode) { (slides, error) -> Void in
+            if let _ = error {
+                print("#################### error #####################")
+            }
+            else {
+                self.tableView.reloadData()
+            }
         }
     }
 
@@ -128,12 +138,17 @@ OverlayTextFieldDelegate {
         case 0:
             let cell = tableView.dequeueCell(SlideCell.self, indexPath: indexPath)
             let slides = service.slides[currentMode]!
+            print("index:\(indexPath.row) slides:\(slides.count)")
             cell.configureSlide(slides[indexPath.row], index:indexPath.row)
             return cell
             
         case 1:
             let cell = tableView.dequeueCell(LoadingCell.self, indexPath: indexPath)
-            cell.configure()
+            cell.configure(service.state[currentMode]!)
+            if service.state[currentMode] == .EnableNext
+                && !service.isLoading {
+                loadMore(mode: currentMode)
+            }
             return cell
             
         default:

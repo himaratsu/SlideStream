@@ -17,17 +17,34 @@ private let refreshApiUrl = "\(host)/refresh"
 
 class SlideService {
    
+    enum LoadingState {
+        case EnableNext
+        case ItemOver
+        case NetworkError
+    }
+    
     var isLoaded = [Mode:Bool]()
+    var isLoading = false
     var slides = [Mode:[Slide]]()
     
     var slide: Slide?   // URLでリクエストする時用
     
-    func requestSlides(mode: Mode, completionHandler:([Slide]?, NSError?) -> Void) {
+    private var offset = [Mode:Int]()
+    private var limit = 10
+    var state = [Mode:LoadingState]()
+    
+    func requestSlidesHead(mode: Mode, completionHandler:([Slide]?, NSError?) -> Void) {
+        
+        isLoading = true
+        
+        offset = [mode:0]
+        state = [mode:.EnableNext]
         
         isLoaded[mode] = false
         slides[mode] = [Slide]()
         
-        var params = ["mode": mode.mode]
+        var params = ["mode": mode.mode,
+                      "limit": "\(limit)"]
         if mode == .Latest {
             params["sort"] = "latest"
         }
@@ -37,9 +54,6 @@ class SlideService {
             parameters: params,
             encoding: ParameterEncoding.URL)
             .response { [weak self] (req, res, data, error) -> Void in
-                
-                 print(req?.URL)
-                
                 if let error = error {
                     print(error)
                 } else {
@@ -52,12 +66,75 @@ class SlideService {
                         self?.slides[mode] = slides
                         self?.isLoaded[mode] = true
                         
+                        if slides.count == 10 {
+                            self?.state[mode] = .EnableNext
+                            self?.offset[mode] = self?.slides[mode]?.count
+                        } else {
+                            self?.state[mode] = .ItemOver
+                        }
+                        
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             completionHandler(slides, nil)
                         })
-                        
                     }
                 }
+                self?.isLoading = false
+        }
+    }
+    
+    func requestSlidesNext(mode: Mode, completionHandler:([Slide]?, NSError?) -> Void) {
+        
+        if isLoading {
+            return
+        }
+        isLoading = true
+        
+        var params = ["mode": mode.mode,
+            "limit": "\(limit)"]
+        if mode == .Latest {
+            params["sort"] = "latest"
+        }
+        if let offset = offset[mode] {
+            params["offset"] = "\(offset)"
+        }
+        
+        Alamofire.request(.GET,
+            apiUrl,
+            parameters: params,
+            encoding: ParameterEncoding.URL)
+            .response { [weak self] (req, res, data, error) -> Void in
+                
+                print(req?.URL)
+                
+                if let error = error {
+                    print(error)
+                } else {
+                    if let json = try! NSJSONSerialization.JSONObjectWithData(data!,
+                        options: NSJSONReadingOptions.AllowFragments) as? Array<[String:AnyObject]> {
+                            
+                            let parser = SlideParser()
+                            let slides = parser.parse(json)
+
+                            print("[BEFORE] \(mode) : \(self!.slides[mode]?.count)")
+                            
+                            self!.slides[mode]! += slides
+                            
+                            print("[AFTER] \(mode) : \(self!.slides[mode]?.count)")
+                            
+                            if slides.count == 10 {
+                                self?.state[mode] = .EnableNext
+                                self?.offset[mode] = self!.slides[mode]?.count
+                            } else {
+                                self?.state[mode] = .ItemOver
+                            }
+                            
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                completionHandler(slides, nil)
+                            })
+                    }
+                }
+                
+                self?.isLoading = false
         }
     }
     

@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SlideStream/ViewController.swift"
-            timestampString = "464461354.054832"
+            filePath = "SlideStream/SettingViewController.swift"
+            timestampString = "464461904.460627"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
-            landmarkName = "swipeToLeft()"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "touchThreeFinger()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SlideStream/SettingViewController.swift"
-            timestampString = "464461904.460627"
+            filePath = "SlideStream/SlideService.swift"
+            timestampString = "464470425.054529"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
-            landmarkName = "touchThreeFinger()"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "requestSlidesNext(_:completionHandler:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SlideStream/SlideService.swift"
+            timestampString = "464470425.054529"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "requestSlidesHead(_:completionHandler:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
