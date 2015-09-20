@@ -20,13 +20,15 @@ OverlayTextFieldDelegate {
     private var currentIndex: Int = 0
     @IBOutlet weak private var roundSearchButton: RoundSearchButton!
     @IBOutlet weak private var segmentedControl: UISegmentedControl!
-    
+    @IBOutlet weak private var settingButton: UIButton!
     @IBOutlet weak private var bannerView: GADBannerView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpRefreshControl()
+        
+        setUpSettingButton()
         
         setUpBannerView()
         
@@ -41,6 +43,12 @@ OverlayTextFieldDelegate {
         refreshControl.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
         refreshControl.attributedTitle = NSAttributedString(string: "引っ張って更新")
         tableView.addSubview(refreshControl)
+    }
+    
+    private func setUpSettingButton() {
+        let originalImage = UIImage(named: "menu")
+        let image = originalImage?.imageWithRenderingMode(.AlwaysTemplate)
+        settingButton.setImage(image, forState: .Normal)
     }
     
     private func setUpBannerView() {
@@ -169,12 +177,6 @@ OverlayTextFieldDelegate {
     
     
     // MARK: - Action
-    
-    @IBAction func infoButtonTouched(sender: AnyObject) {
-        service.refreshSlideInfo { (isSuccess, error) -> Void in
-            print("refreshed")
-        }
-    }
     
     @IBAction func segmentedControlChanged(sender: UISegmentedControl) {
         let selectIndex = sender.selectedSegmentIndex

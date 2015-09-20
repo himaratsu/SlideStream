@@ -13,6 +13,7 @@
 		201A448B1B91D13D00FF17CA /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201A448A1B91D13D00FF17CA /* LoadingCell.swift */; };
 		201A448D1B9224AA00FF17CA /* InputHelperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201A448C1B9224AA00FF17CA /* InputHelperView.swift */; };
 		201A448F1B9224B500FF17CA /* InputHelperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 201A448E1B9224B500FF17CA /* InputHelperView.xib */; };
+		207959C91BAF169D00437A6B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207959C81BAF169D00437A6B /* SettingViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		20A63DB91B8A05770072A2BB /* RoundSearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A63DB81B8A05770072A2BB /* RoundSearchButton.swift */; };
 		20A63DBB1B8A057F0072A2BB /* RoundSearchButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A63DBA1B8A057F0072A2BB /* RoundSearchButton.xib */; };
 		20A63DBD1B8A09200072A2BB /* OverlayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A63DBC1B8A09200072A2BB /* OverlayTextField.swift */; };
@@ -40,6 +41,7 @@
 		201A448A1B91D13D00FF17CA /* LoadingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		201A448C1B9224AA00FF17CA /* InputHelperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputHelperView.swift; sourceTree = "<group>"; };
 		201A448E1B9224B500FF17CA /* InputHelperView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputHelperView.xib; sourceTree = "<group>"; };
+		207959C81BAF169D00437A6B /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		20A63DB81B8A05770072A2BB /* RoundSearchButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundSearchButton.swift; sourceTree = "<group>"; };
 		20A63DBA1B8A057F0072A2BB /* RoundSearchButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundSearchButton.xib; sourceTree = "<group>"; };
 		20A63DBC1B8A09200072A2BB /* OverlayTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayTextField.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			children = (
 				D9B504351B42E0C4002927F3 /* ViewController.swift */,
 				D9B5045B1B42E62E002927F3 /* DetailViewController.swift */,
+				207959C81BAF169D00437A6B /* SettingViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				D9B504361B42E0C4002927F3 /* ViewController.swift in Sources */,
 				D9B504561B42E2F1002927F3 /* SlideCell.swift in Sources */,
 				D9B5045C1B42E62E002927F3 /* DetailViewController.swift in Sources */,
+				207959C91BAF169D00437A6B /* SettingViewController.swift in Sources */,
 				20A63DBD1B8A09200072A2BB /* OverlayTextField.swift in Sources */,
 				20A63DC11B8A0F490072A2BB /* SingleSlideParser.swift in Sources */,
 				D916A3481B4A561C00B96506 /* SlideParser.swift in Sources */,

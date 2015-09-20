@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import HandShake
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         window?.tintColor = UIColor.color(0x4aa3df)
         setUpApiKey()
+        setUpHandShake()
         application.registerForRemoteNotifications()
         return true
     }
@@ -26,6 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let appID = ""
         let clientKey = ""
         Parse.setApplicationId(appID, clientKey: clientKey)
+    }
+
+    private func setUpHandShake() {
+        HandShake.setApiKey("")
     }
 
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {

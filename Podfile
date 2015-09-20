@@ -9,6 +9,7 @@ target 'SlideStream' do
   pod 'MWPhotoBrowser'
   pod 'Google-Mobile-Ads-SDK', '~> 7.0'
   pod 'Parse', '~> 1.6.2'
+  pod 'HandShake'
 end
 
 
